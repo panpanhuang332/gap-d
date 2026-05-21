@@ -13,8 +13,8 @@ const FALLBACK_PAPERS = [
     author: "黄國津（建國科技大學）",
     conference: "台北商業大學研討會",
     date: "2026-05-15",
-    status: "已發表於 5/15",
-    abstract: "本研究探討數位假評（Fake Reviews）對消費者服務期望與品質感知之影響機制。依據 PZB 服務品質缺口模型（Parasuraman et al., 1985），本研究提出「Gap D（數位資訊污染缺口）」：Gap D = E_polluted − E_authentic，具方向性——正向假評造成上行扭曲（Gap D > 0，E↑，Gap 5 擴大，消費者失落）；負向假評造成下行扭曲（Gap D < 0，E↓，Gap 5 縮小，品牌遭系統性低估）。此雙向扭曲機制，本研究正式命名為「期望扭曲悖論（Expectation Distortion Paradox, EDP）」。援引 Carlzon（1987）MOT 理論，本研究提出三項評論真實性指標：具體性分數（SS）、模板相似度（TS）及情感細粒度（SG），整合為整體評分，開發「MOT Calibrator」工具原型，協助消費者在 ZMOT 階段主動校準期望。理論貢獻在於：首次系統性建構雙向 Gap D 框架，並將假評研究從技術偵測視角拓展至服務管理的期望品質保護視角。",
+    status: "已接受口頭發表（已於 5/15 發表）",
+    abstract: "本研究探討數位假評（Fake Reviews）對消費者服務期望與品質感知之影響機制。依據 PZB 服務品質缺口模型（Parasuraman et al., 1985），本研究提出「Gap D（數位資訊污染缺口）」：Gap D = E_polluted − E_authentic，具方向性——正向假評造成上行扭曲（Gap D > 0，E↑，Gap 5 擴大，消費者失落）；負向假評造成下行扭曲（Gap D < 0，E↓，Gap 5 縮小，品牌遭系統性低估）。此雙向扭曲機制，本研究正式命名為「期望扭曲悖論（Expectation Distortion Paradox, EDP）」。援引 Carlzon（1987）MOT 理論，本研究提出三項評論真實性指標：具體性分數（SS－Specificity Score）、模板相似度（TS－Template Similarity）及情感細粒度（SG－Sentiment Granularity），整合為整體評分，開發「MOT Calibrator」工具原型，協助消費者在 ZMOT 階段主動校準期望。理論貢獻在於：首次系統性建構雙向 Gap D 框架，並將假評研究從技術偵測視角拓展至服務管理的期望品質保護視角。",
     keywords: ["假評偵測", "期望扭曲悖論", "Gap D", "MOT 理論", "PZB 服務品質缺口", "精細可能性模型 (ELM)"],
     fileName: "mock_paper_1.pdf"
   },
@@ -25,7 +25,7 @@ const FALLBACK_PAPERS = [
     author: "黄國津（建國科技大學）",
     conference: "龍華科技大學研討會",
     date: "2026-05-29",
-    status: "將於 5/29 發表",
+    status: "已接受口頭發表（將於 5/29 發表）",
     abstract: "本研究針對現有服務品質理論的測量盲點，正式提出「Gap D（數位資訊污染缺口）」，並主張 Gap D 不僅是 PZB 原始 Gap 4（外部溝通缺口）的數位化延伸，而是具有制度性本質差異的獨立理論命題。本研究從三個獨立理論維度進行論證：（1）資訊問責性（Drucker, 1993）——Gap D 的資訊主體為匿名第三方，現有法律問責機制難以有效追溯與即時處理；（2）信號可信度（Spence, 1973）——假評偽裝成中立口碑，繞過消費者的勸說知識防禦機制，造成比廣告更深的期望污染；（3）市場失靈機制（Akerlof, 1970）——假評構成數位市場中的「檸檬信號」，可能導致誠實業者在口碑競爭中處於系統性不利地位。Gap D 正式定義為：Gap D = E_polluted − E_authentic，具方向性，並以修正公式 Gap 5（修正版）= (E_authentic + Gap D) − P 整合進 PZB 框架。本研究進一步提出「期望扭曲悖論（EDP）」雙向框架、MOT Calibrator 評分工具及 MARC / MACS 三層治理架構，作為 Gap D 獨立命題的理論延伸與實踐出口。",
     keywords: ["假評偵測", "期望扭曲悖論", "MOT 理論", "PZB 服務品質缺口", "期望校準"],
     fileName: "mock_paper_2.pdf"
@@ -37,7 +37,7 @@ const FALLBACK_PAPERS = [
     author: "黄國津（建國科技大學）",
     conference: "台北科技大學研討會",
     date: "2026-06-05",
-    status: "將於 6/5 發表",
+    status: "已接受口頭發表（將於 6/5 發表）",
     abstract: "數位假評在消費者形成消費期望之前即可能污染其資訊基礎，使PZB服務品質缺口模型中「期望（E）」之形成過程暴露於系統性扭曲。然而SERVQUAL之22題量表聚焦於服務接觸後之P−E差距，較少處理期望形成階段所接觸資訊之真實性品質。為回應此測量缺口，本研究提出EAQUAL（Expectation Authenticity Quality Scale，期望真實性品質量表）作為一套針對「期望形成真實性」之初步量表原型（preliminary prototype scale）。本研究將量表收斂為三個核心構面：來源可信度（SC，4題）、內容真實性（CA，6題）、體驗一致性（EC，5題），共15題，採Likert五點量表，定位為「形成—驗證雙階段」感知量表。本文之理論貢獻在於提出針對期望污染缺口（Gap D）之消費者端測量工具雛形，並區隔於既有eWOM credibility與information quality研究。後續研究將進一步進行信度、收斂效度、區別效度與預測效度之實證驗證，並提出MACS（MOT Authenticity Certification System）作為平台端應用延伸，共同建構期望誠實管理（EHM）之操作框架。",
     keywords: ["EAQUAL", "期望真實性", "假評", "服務品質量表", "Gap D", "MACS", "期望誠實管理"],
     fileName: "mock_paper_3.pdf"
@@ -209,8 +209,8 @@ function renderPapers(papers, isOffline = false) {
 }
 
 function getBadgeClass(status) {
-  if (status.includes('已發表')) return 'badge-published';
-  if (status.includes('6/5')) return 'badge-taipeitech';
+  if (status.includes('5/15') || status.includes('已發表')) return 'badge-published';
+  if (status.includes('6/5') || status.includes('北科大')) return 'badge-taipeitech';
   return 'badge-upcoming';
 }
 
