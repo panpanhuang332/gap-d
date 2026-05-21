@@ -82,7 +82,34 @@ document.addEventListener('DOMContentLoaded', () => {
   loadComments();
   initNavScroll();
   initCalibratorDemos();
+  initSecretAdminTrigger();
 });
+
+// 隱藏版管理後台進入機制：連續快速點擊個人「黄」頭像或 LOGO 5 次即可進入後台
+function initSecretAdminTrigger() {
+  let clickCount = 0;
+  let lastClickTime = 0;
+  
+  const triggers = document.querySelectorAll('.avatar, .logo');
+  triggers.forEach(el => {
+    el.addEventListener('click', (e) => {
+      const now = Date.now();
+      // 若點擊間隔超過 1.5 秒，則重新計數
+      if (now - lastClickTime > 1500) {
+        clickCount = 0;
+      }
+      
+      clickCount++;
+      lastClickTime = now;
+      
+      if (clickCount >= 5) {
+        e.preventDefault(); // 只有在達到 5 次點擊、要跳轉時才阻擋預設行為
+        clickCount = 0; // 重設計數器
+        window.location.href = 'admin.html';
+      }
+    });
+  });
+}
 
 // 頂部導覽平滑捲動與 active 狀態切換
 function initNavScroll() {
