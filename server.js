@@ -2,8 +2,10 @@ const express = require('express');
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
+const cors = require('cors');
 
 const app = express();
+app.use(cors()); // 允許跨來源請求以支援 GitHub Pages 串接
 const PORT = process.env.PORT || 3000;
 const ADMIN_PASSWORD = 'admin123'; // 預設管理員密碼
 

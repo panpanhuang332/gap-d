@@ -1,3 +1,8 @@
+// 若在 GitHub Pages (非 localhost) 上執行，則將請求導向 Render 雲端伺服器；否則使用本機路徑
+const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+  ? ''
+  : 'https://gap-d-backend.onrender.com'; // 部署後請在此處替換為您的 Render 伺服器網址
+
 let adminPassword = '';
 let chartEaqualInstance = null;
 let chartDistortionInstance = null;
@@ -9,7 +14,7 @@ document.getElementById('login-form').addEventListener('submit', async (e) => {
 
   // 驗證密碼（向後端請求統計資料，以驗證密碼是否正確）
   try {
-    const res = await fetch(`/api/admin/stats?password=${encodeURIComponent(passwordInput)}`);
+    const res = await fetch(`${API_BASE}/api/admin/stats?password=${encodeURIComponent(passwordInput)}`);
     const data = await res.json();
 
     if (data.success) {
@@ -53,13 +58,13 @@ function loadAdminDashboard() {
 // ==================== 1. 數據與圖表統計 ====================
 async function loadAdminStats() {
   try {
-    const res = await fetch(`/api/admin/stats?password=${encodeURIComponent(adminPassword)}`);
+    const res = await fetch(`${API_BASE}/api/admin/stats?password=${encodeURIComponent(adminPassword)}`);
     const data = await res.json();
 
     if (!data.success) return;
 
     // 取得論文列表計數
-    const papersRes = await fetch('/api/papers');
+    const papersRes = await fetch(`${API_BASE}/api/papers`);
     const papers = await papersRes.json();
 
     // 更新統計數字
@@ -207,7 +212,7 @@ document.getElementById('upload-paper-form').addEventListener('submit', async (e
   formData.append('password', adminPassword); // 加入密碼驗證
 
   try {
-    const res = await fetch('/api/papers/upload', {
+    const res = await fetch(`${API_BASE}/api/papers/upload`, {
       method: 'POST',
       body: formData
     });
@@ -231,7 +236,7 @@ async function loadAdminComments() {
   const tbody = document.getElementById('admin-comments-tbody');
   
   try {
-    const res = await fetch('/api/comments');
+    const res = await fetch(`${API_BASE}/api/comments`);
     const comments = await res.json();
 
     if (comments.length === 0) {
@@ -280,7 +285,7 @@ async function deleteComment(id) {
   if (!confirm('您確定要刪除這則留言嗎？此動作無法復原！')) return;
 
   try {
-    const res = await fetch(`/api/admin/comments/${id}`, {
+    const res = await fetch(`${API_BASE}/api/admin/comments/${id}`, {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ password: adminPassword })

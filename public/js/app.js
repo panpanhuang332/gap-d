@@ -1,4 +1,9 @@
 // ==================== 全域狀態與初始化 ====================
+// 若在 GitHub Pages (非 localhost) 上執行，則將請求導向 Render 雲端伺服器；否則使用本機路徑
+const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+  ? ''
+  : 'https://gap-d-backend.onrender.com'; // 部署後請在此處替換為您的 Render 伺服器網址
+
 document.addEventListener('DOMContentLoaded', () => {
   loadPapers();
   loadComments();
@@ -35,7 +40,7 @@ function initNavScroll() {
 async function loadPapers() {
   const container = document.getElementById('papers-list-container');
   try {
-    const res = await fetch('/api/papers');
+    const res = await fetch(`${API_BASE}/api/papers`);
     const papers = await res.json();
 
     if (papers.length === 0) {
@@ -69,7 +74,7 @@ async function loadPapers() {
                     🔒 6/5 發表後公開
                   </button>
                 ` : `
-                  <a href="/uploads/${paper.fileName}" class="btn btn-primary" download="${paper.title}.pdf">
+                  <a href="${API_BASE}/uploads/${paper.fileName}" class="btn btn-primary" download="${paper.title}.pdf">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                     下載論文 PDF
                   </a>
@@ -279,7 +284,7 @@ async function submitEaqualQuiz() {
   const targetReview = document.getElementById('eaqual-target-review').value.trim();
 
   try {
-    const res = await fetch('/api/surveys/eaqual', {
+    const res = await fetch(`${API_BASE}/api/surveys/eaqual`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ scores, targetReview })
@@ -341,7 +346,7 @@ async function loadComments() {
   const countSpan = document.getElementById('comments-count');
 
   try {
-    const res = await fetch('/api/comments');
+    const res = await fetch(`${API_BASE}/api/comments`);
     const comments = await res.json();
 
     countSpan.textContent = `共 ${comments.length} 則`;
@@ -399,7 +404,7 @@ document.getElementById('comment-form').addEventListener('submit', async (e) => 
   const content = document.getElementById('comment-content').value.trim();
 
   try {
-    const res = await fetch('/api/comments', {
+    const res = await fetch(`${API_BASE}/api/comments`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, email, paperId, content })
@@ -427,7 +432,7 @@ document.getElementById('survey-form').addEventListener('submit', async (e) => {
   const q4 = document.getElementById('survey-advice').value.trim();
 
   try {
-    const res = await fetch('/api/surveys/submit', {
+    const res = await fetch(`${API_BASE}/api/surveys/submit`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ q1, q2, q3, q4 })
