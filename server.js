@@ -12,7 +12,7 @@ const ADMIN_PASSWORD = 'admin123'; // 預設管理員密碼
 // 中介軟體設定
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'docs')));
 // 6/5 北科大論文保護：在靜態資料夾開放前攔截下載請求
 app.get('/uploads/mock_paper_3.pdf', (req, res) => {
   res.status(403).send('<h1>403 Forbidden</h1><p>該論文（EAQUAL-15）尚未正式發表，暫不開放下載。請待 6/5 發表後再行存取。</p>');
