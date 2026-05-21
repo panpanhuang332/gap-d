@@ -440,7 +440,7 @@ document.getElementById('survey-form').addEventListener('submit', async (e) => {
     const data = await res.json();
 
     if (data.success) {
-      alert('感謝您填寫學術調查問卷！您的反饋對黃國津的研究非常重要！');
+      alert('感謝您填寫學術調查問卷！您的反饋對黄國津的研究非常重要！');
       document.getElementById('survey-form').reset();
     }
   } catch (err) {

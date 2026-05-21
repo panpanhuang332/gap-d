@@ -144,7 +144,7 @@ app.post('/api/papers/upload', upload.single('pdf'), (req, res) => {
     id: `paper-${Date.now()}`,
     title: title || '未命名論文',
     englishTitle: englishTitle || '',
-    author: author || '黃國津',
+    author: author || '黄國津',
     conference: conference || '研討會發表',
     date: date || new Date().toISOString().split('T')[0],
     status: status || '新發表',
