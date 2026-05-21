@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>黃國津個人學術網站 | 期望誠實管理 & Gap D 研究三部曲</title>
+  <meta name="description" content="建國科技大學經營管理系進修部二技黃國津的個人學術主頁，專注於數位假評的期望扭曲效應、Gap D 數位資訊污染缺口與 EAQUAL-15 期望真實性量表。">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- 頂部導覽列 -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo text-main">
+        黃國津 <span class="logo-badge">EHM & Gap D</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about" class="active">關於我</a></li>
+        <li><a href="#publications">學術著作</a></li>
+        <li><a href="#calibrator">MOT 校準器</a></li>
+        <li><a href="#eaqual">EAQUAL 量表</a></li>
+        <li><a href="#comments">留言板</a></li>
+        <li><a href="#survey">調查問卷</a></li>
+        <li><a href="admin.html">管理後台</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- 關於我 / Hero 區 -->
+    <section id="about" class="hero-section">
+      <div class="hero-content">
+        <span class="section-badge">ABOUT ME</span>
+        <h1>數位時代的<br><span class="gradient-text">期望誠實管理</span></h1>
+        <p class="hero-subtitle">致力於修復被假評污染的數位市場與品質期望</p>
+        <p class="hero-bio">
+          我是黃國津，就讀於建國科技大學經營管理系進修部二技（一年級）。研究領域聚焦於服務品質管理、消費者行為、電子口碑 (eWOM) 傳播、以及數位假評 (Fake Reviews) 偵測。<br><br>
+          在數位商務中，網路評論正全面替代實體接觸媒介。我的核心學術研究——<b>「期望誠實管理 (EHM) 三部曲」</b>，正式論證了數位資訊污染缺口 (Gap D) 與期望扭曲悖論 (EDP)，並提出 EAQUAL-15 量表與 MACS 配套機制，為消費者期望校準及市場失靈治理提供系統性方案。
+        </p>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number gradient-text">3</span>
+            <span class="stat-label">代表性著作</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number gradient-text">2026</span>
+            <span class="stat-label">最新發表</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number gradient-text">15</span>
+            <span class="stat-label">EAQUAL 題項</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="aurora-glow-sphere"></div>
+        <div class="profile-card">
+          <div class="avatar-container">
+            <div class="avatar">黃</div>
+          </div>
+          <h3>黃國津</h3>
+          <p>建國科技大學 經營管理系 進修部二技</p>
+          <div class="contact-info">
+            <a href="mailto:kuochin.huang@example.com" class="contact-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              kuochin.huang@example.com
+            </a>
+            <span class="contact-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              彰化市介壽北路 1 號 (建國科大)
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 學術著作 / 時間軸區 -->
+    <section id="publications">
+      <div class="section-header">
+        <span class="section-badge">PUBLICATIONS</span>
+        <h2>Gap D & EHM 研究三部曲</h2>
+      </div>
+
+      <div class="trilogy-timeline" id="papers-list-container">
+        <!-- 論文列表將透過 JavaScript 動態載入 -->
+        <div style="text-align: center; color: var(--text-dark); padding: 2rem;">
+          載入論文列表中...
+        </div>
+      </div>
+    </section>
+
+    <!-- 互動工具 A: MOT Calibrator -->
+    <section id="calibrator">
+      <div class="section-header">
+        <span class="section-badge">INTERACTIVE TOOL A</span>
+        <h2>MOT Calibrator 線上評論真實性校準器</h2>
+      </div>
+
+      <div class="glass-card">
+        <p style="color: var(--text-muted); margin-bottom: 2rem;">
+          <b>設計哲學：不審判造假者，只保護消費者。</b><br>
+          本工具依據真實瞬間 (MOT) 理論，分析評論文字中的「人員互動、感官描述、時空細節、情節轉折」語意特徵，結合模板比對與情感複雜度，評估評論真實度，並給予您購前期望校準建議。
+        </p>
+
+        <div class="tool-grid">
+          <div class="tool-left">
+            <div class="form-group">
+              <label for="review-input">貼上欲評估的網路評論：</label>
+              <textarea id="review-input" class="form-control" placeholder="在此貼上網路評論，例如：&#10;「服務員小陳主動幫我們換了靠窗座位，等了約20分鐘，牛肉麵湯頭偏鹹但麵條Q彈，下次會避開週末」"></textarea>
+            </div>
+            
+            <div style="display:flex; gap:1rem;">
+              <button id="btn-calibrate" class="btn btn-primary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                開始期望校準
+              </button>
+              <button id="btn-demo-real" class="btn btn-secondary">套用真實評論範例</button>
+              <button id="btn-demo-fake" class="btn btn-secondary">套用套語假評範例</button>
+            </div>
+          </div>
+
+          <div class="tool-right">
+            <!-- 結果卡片 -->
+            <div id="calibrator-result" class="calibrator-result">
+              <div id="risk-alert-bar" class="risk-alert-bar">
+                <span>風險狀態</span>
+                <span id="risk-label">--</span>
+              </div>
+
+              <div class="gauge-container">
+                <div class="gauge-box">
+                  <div class="gauge-val gradient-text" id="val-ss">0</div>
+                  <div class="gauge-label">具體性 (SS)</div>
+                  <div class="gauge-info">體驗細節深度</div>
+                </div>
+                <div class="gauge-box">
+                  <div class="gauge-val gradient-text" id="val-ts">0%</div>
+                  <div class="gauge-label">反模板化</div>
+                  <div class="gauge-info">避免套語重複</div>
+                </div>
+                <div class="gauge-box">
+                  <div class="gauge-val gradient-text" id="val-sg">0</div>
+                  <div class="gauge-label">情感細粒度</div>
+                  <div class="gauge-info">情感真實層次</div>
+                </div>
+              </div>
+
+              <div class="gauge-box" style="text-align: center;">
+                <div class="gauge-val gradient-text" id="val-overall" style="font-size: 2.25rem;">0</div>
+                <div class="gauge-label">綜合真實性得分 (Overall)</div>
+              </div>
+
+              <div class="calibration-advice-box">
+                <h4>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                  期望校準建議 (EC)
+                </h4>
+                <p id="calibration-advice" style="font-size: 0.9rem; color: var(--text-muted);">
+                  輸入評論並點擊開始校準，系統將提供客製化的期望校準策略。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 互動工具 B: EAQUAL-15 -->
+    <section id="eaqual">
+      <div class="section-header">
+        <span class="section-badge">INTERACTIVE TOOL B</span>
+        <h2>EAQUAL-15 期望真實性自我評估問卷</h2>
+      </div>
+
+      <div class="glass-card">
+        <div class="eaqual-quiz-container" id="eaqual-quiz-box">
+          <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+            本問卷基於您第三篇論文《EAQUAL-15：期望真實性量表初步原型建構》設計。您可以選擇一則您剛剛看過的網路評論，並針對該則評論的<b>來源可信度 (SC)</b>、<b>內容真實性 (CA)</b>、<b>體驗一致性 (EC)</b> 進行主觀打分。系統會自動彙整出雷達分析圖與期望安全級別。
+          </p>
+
+          <!-- 目標評論輸入 -->
+          <div class="form-group" id="eaqual-review-group">
+            <label for="eaqual-target-review">您要評估的評論內容（選填）：</label>
+            <input type="text" id="eaqual-target-review" class="form-control" placeholder="輸入你想檢測的評論摘要或網址...">
+          </div>
+
+          <div class="quiz-progress-bar">
+            <div class="quiz-progress-fill" id="quiz-progress"></div>
+          </div>
+
+          <!-- 第一步：SC -->
+          <div class="quiz-step active" id="step-1">
+            <div class="eaqual-title-group">
+              <h3>第一階段：來源可信度 (Source Credibility, SC)</h3>
+              <p>評估該評論發布帳號的歷史活動成本與真實身分可追溯度</p>
+            </div>
+            
+            <div class="quiz-questions-list">
+              <div class="quiz-q-item">
+                <p class="quiz-q-text">SC1：評論者提供的個人或帳號資訊，足以讓我判斷其評論可信度。</p>
+                <div class="likert-options">
+                  <div class="likert-option"><input type="radio" name="sc1" id="sc1-1" value="1"><label for="sc1-1">非常不同意 (1)</label></div>
+                  <div class="likert-option"><input type="radio" name="sc1" id="sc1-2" value="2"><label for="sc1-2">不同意 (2)</label></div>
+                  <div class="likert-option"><input type="radio" name="sc1" id="sc1-3" value="3" checked><label for="sc1-3">普通 (3)</label></div>
+                  <div class="likert-option"><input type="radio" name="sc1" id="sc1-4" value="4"><label for="sc1-4">同意 (4)</label></div>
+                  <div class="likert-option"><input type="radio" name="sc1" id="sc1-5" value="5"><label for="sc1-5">非常同意 (5)</label></div>
+                </div>
+              </div>
+              <div class="quiz-q-item">
+                <p class="quiz-q-text">SC2：具有長期活動紀錄的評論者，比新建立帳號更值得信任。</p>
+                <div class="likert-options">
+                  <div class="likert-option"><input type="radio" name="sc2" id="sc2-1" value="1"><label for="sc2-1">非常不同意 (1)</label></div>
+                  <div class="likert-option"><input type="radio" name="sc2" id="sc2-2" value="2"><label for="sc2-2">不同意 (2)</label></div>
+                  <div class="likert-option"><input type="radio" name="sc2" id="sc2-3" value="3" checked><label for="sc2-3">普通 (3)</label></div>
+                  <div class="likert-option"><input type="radio" name="sc2" id="sc2-4" value="4"><label for="sc2-4">同意 (4)</label></div>
+                  <div class="likert-option"><input type="radio" name="sc2" id="sc2-5" value="5"><label for="sc2-5">非常同意 (5)</label></div>
+                </div>
+              </div>
+              <div class="quiz-q-item">
+                <p class="quiz-q-text">SC3：這則評論的來源讓我懷疑其可能為業者或第三方刻意撰寫。<span class="rev-tag">反向題</span></p>
+                <div class="likert-options">
+                  <div class="likert-option"><input type="radio" name="sc3" id="sc3-1" value="1"><label for="sc3-1">非常不同意 (1)</label></div>
+                  <div class="likert-option"><input type="radio" name="sc3" id="sc3-2" value="2"><label for="sc3-2">不同意 (2)</label></div>
+                  <div class="likert-option"><input type="radio" name="sc3" id="sc3-3" value="3" checked><label for="sc3-3">普通 (3)</label></div>
+                  <div class="likert-option"><input type="radio" name="sc3" id="sc3-4" value="4"><label for="sc3-4">同意 (4)</label></div>
+                  <div class="likert-option"><input type="radio" name="sc3" id="sc3-5" value="5"><label for="sc3-5">非常同意 (5)</label></div>
+                </div>
+              </div>
+              <div class="quiz-q-item">
+                <p class="quiz-q-text">SC4：評論者過去的發文紀錄，有助於判斷其評論可信度。</p>
+                <div class="likert-options">
+                  <div class="likert-option"><input type="radio" name="sc4" id="sc4-1" value="1"><label for="sc4-1">非常不同意 (1)</label></div>
+                  <div class="likert-option"><input type="radio" name="sc4" id="sc4-2" value="2"><label for="sc4-2">不同意 (2)</label></div>
+                  <div class="likert-option"><input type="radio" name="sc4" id="sc4-3" value="3" checked><label for="sc4-3">普通 (3)</label></div>
+                  <div class="likert-option"><input type="radio" name="sc4" id="sc4-4" value="4"><label for="sc4-4">同意 (4)</label></div>
+                  <div class="likert-option"><input type="radio" name="sc4" id="sc4-5" value="5"><label for="sc4-5">非常同意 (5)</label></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="quiz-nav-buttons">
+              <span></span>
+              <button class="btn btn-primary" onclick="nextQuizStep(2)">下一階段：內容真實性 (CA)</button>
+            </div>
+          </div>
+
+          <!-- 第二步：CA -->
+          <div class="quiz-step" id="step-2">
+            <div class="eaqual-title-group">
+              <h3>第二階段：內容真實性 (Content Authenticity, CA)</h3>
+              <p>評估該評論內容是否包含豐富的真實體驗細節（MOT 特徵）</p>
+            </div>
+            
+            <div class="quiz-questions-list">
+              <div class="quiz-q-item">
+                <p class="quiz-q-text">CA1：這則評論提到了具體的時間、地點或人員互動。</p>
+                <div class="likert-options">
+                  <div class="likert-option"><input type="radio" name="ca1" id="ca1-1" value="1"><label for="ca1-1">非常不同意 (1)</label></div>
+                  <div class="likert-option"><input type="radio" name="ca1" id="ca1-2" value="2"><label for="ca1-2">不同意 (2)</label></div>
+                  <div class="likert-option"><input type="radio" name="ca1" id="ca1-3" value="3" checked><label for="ca1-3">普通 (3)</label></div>
+                  <div class="likert-option"><input type="radio" name="ca1" id="ca1-4" value="4"><label for="ca1-4">同意 (4)</label></div>
+                  <div class="likert-option"><input type="radio" name="ca1" id="ca1-5" value="5"><label for="ca1-5">非常同意 (5)</label></div>
+                </div>
+              </div>
+              <div class="quiz-q-item">
+                <p class="quiz-q-text">CA2：這則評論描述了具體的感官或服務細節。</p>
+                <div class="likert-options">
+                  <div class="likert-option"><input type="radio" name="ca2" id="ca2-1" value="1"><label for="ca2-1">非常不同意 (1)</label></div>
+                  <div class="likert-option"><input type="radio" name="ca2" id="ca2-2" value="2"><label for="ca2-2">不同意 (2)</label></div>
+                  <div class="likert-option"><input type="radio" name="ca2" id="ca2-3" value="3" checked><label for="ca2-3">普通 (3)</label></div>
+                  <div class="likert-option"><input type="radio" name="ca2" id="ca2-4" value="4"><label for="ca2-4">同意 (4)</label></div>
+                  <div class="likert-option"><input type="radio" name="ca2" id="ca2-5" value="5"><label for="ca2-5">非常同意 (5)</label></div>
+                </div>
+              </div>
+              <div class="quiz-q-item">
+                <p class="quiz-q-text">CA3：這則評論描述了實際發生的消費過程。</p>
+                <div class="likert-options">
+                  <div class="likert-option"><input type="radio" name="ca3" id="ca3-1" value="1"><label for="ca3-1">非常不同意 (1)</label></div>
+                  <div class="likert-option"><input type="radio" name="ca3" id="ca3-2" value="2"><label for="ca3-2">不同意 (2)</label></div>
+                  <div class="likert-option"><input type="radio" name="ca3" id="ca3-3" value="3" checked><label for="ca3-3">普通 (3)</label></div>
+                  <div class="likert-option"><input type="radio" name="ca3" id="ca3-4" value="4"><label for="ca3-4">同意 (4)</label></div>
+                  <div class="likert-option"><input type="radio" name="ca3" id="ca3-5" value="5"><label for="ca3-5">非常同意 (5)</label></div>
+                </div>
+              </div>
+              <div class="quiz-q-item">
+                <p class="quiz-q-text">CA4：這則評論包含許多具體而非籠統的描述。</p>
+                <div class="likert-options">
+                  <div class="likert-option"><input type="radio" name="ca4" id="ca4-1" value="1"><label for="ca4-1">非常不同意 (1)</label></div>
+                  <div class="likert-option"><input type="radio" name="ca4" id="ca4-2" value="2"><label for="ca4-2">不同意 (2)</label></div>
+                  <div class="likert-option"><input type="radio" name="ca4" id="ca4-3" value="3" checked><label for="ca4-3">普通 (3)</label></div>
+                  <div class="likert-option"><input type="radio" name="ca4" id="ca4-4" value="4"><label for="ca4-4">同意 (4)</label></div>
+                  <div class="likert-option"><input type="radio" name="ca4" id="ca4-5" value="5"><label for="ca4-5">非常同意 (5)</label></div>
+                </div>
+              </div>
+              <div class="quiz-q-item">
+                <p class="quiz-q-text">CA5：這則評論只有情緒表達，缺乏具體細節。<span class="rev-tag">反向題</span></p>
+                <div class="likert-options">
+                  <div class="likert-option"><input type="radio" name="ca5" id="ca5-1" value="1"><label for="ca5-1">非常不同意 (1)</label></div>
+                  <div class="likert-option"><input type="radio" name="ca5" id="ca5-2" value="2"><label for="ca5-2">不同意 (2)</label></div>
+                  <div class="likert-option"><input type="radio" name="ca5" id="ca5-3" value="3" checked><label for="ca5-3">普通 (3)</label></div>
+                  <div class="likert-option"><input type="radio" name="ca5" id="ca5-4" value="4"><label for="ca5-4">同意 (4)</label></div>
+                  <div class="likert-option"><input type="radio" name="ca5" id="ca5-5" value="5"><label for="ca5-5">非常同意 (5)</label></div>
+                </div>
+              </div>
+              <div class="quiz-q-item">
+                <p class="quiz-q-text">CA6：評論中的情緒表達符合一般消費者的說話方式。</p>
+                <div class="likert-options">
+                  <div class="likert-option"><input type="radio" name="ca6" id="ca6-1" value="1"><label for="ca6-1">非常不同意 (1)</label></div>
+                  <div class="likert-option"><input type="radio" name="ca6" id="ca6-2" value="2"><label for="ca6-2">不同意 (2)</label></div>
+                  <div class="likert-option"><input type="radio" name="ca6" id="ca6-3" value="3" checked><label for="ca6-3">普通 (3)</label></div>
+                  <div class="likert-option"><input type="radio" name="ca6" id="ca6-4" value="4"><label for="ca6-4">同意 (4)</label></div>
+                  <div class="likert-option"><input type="radio" name="ca6" id="ca6-5" value="5"><label for="ca6-5">非常同意 (5)</label></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="quiz-nav-buttons">
+              <button class="btn btn-secondary" onclick="nextQuizStep(1)">上一階段</button>
+              <button class="btn btn-primary" onclick="nextQuizStep(3)">下一階段：體驗一致性 (EC)</button>
+            </div>
+          </div>
+
+          <!-- 第三步：EC -->
+          <div class="quiz-step" id="step-3">
+            <div class="eaqual-title-group">
+              <h3>第三階段：體驗一致性 (Experience Consistency, EC)</h3>
+              <p>購後驗證階段 —— 評估您實際消費體驗與先前該評論描述的一致性</p>
+            </div>
+            
+            <div class="quiz-questions-list">
+              <div class="quiz-q-item">
+                <p class="quiz-q-text">EC1：評論提到的服務細節，在實際消費後可以被確認。</p>
+                <div class="likert-options">
+                  <div class="likert-option"><input type="radio" name="ec1" id="ec1-1" value="1"><label for="ec1-1">非常不同意 (1)</label></div>
+                  <div class="likert-option"><input type="radio" name="ec1" id="ec1-2" value="2"><label for="ec1-2">不同意 (2)</label></div>
+                  <div class="likert-option"><input type="radio" name="ec1" id="ec1-3" value="3" checked><label for="ec1-3">普通 (3)</label></div>
+                  <div class="likert-option"><input type="radio" name="ec1" id="ec1-4" value="4"><label for="ec1-4">同意 (4)</label></div>
+                  <div class="likert-option"><input type="radio" name="ec1" id="ec1-5" value="5"><label for="ec1-5">非常同意 (5)</label></div>
+                </div>
+              </div>
+              <div class="quiz-q-item">
+                <p class="quiz-q-text">EC2：我實際體驗到的服務內容，與評論描述大致一致。</p>
+                <div class="likert-options">
+                  <div class="likert-option"><input type="radio" name="ec2" id="ec2-1" value="1"><label for="ec2-1">非常不同意 (1)</label></div>
+                  <div class="likert-option"><input type="radio" name="ec2" id="ec2-2" value="2"><label for="ec2-2">不同意 (2)</label></div>
+                  <div class="likert-option"><input type="radio" name="ec2" id="ec2-3" value="3" checked><label for="ec2-3">普通 (3)</label></div>
+                  <div class="likert-option"><input type="radio" name="ec2" id="ec2-4" value="4"><label for="ec2-4">同意 (4)</label></div>
+                  <div class="likert-option"><input type="radio" name="ec2" id="ec2-5" value="5"><label for="ec2-5">非常同意 (5)</label></div>
+                </div>
+              </div>
+              <div class="quiz-q-item">
+                <p class="quiz-q-text">EC3：部分評論內容與我實際體驗有明顯差異。<span class="rev-tag">反向題</span></p>
+                <div class="likert-options">
+                  <div class="likert-option"><input type="radio" name="ec3" id="ec3-1" value="1"><label for="ec3-1">非常不同意 (1)</label></div>
+                  <div class="likert-option"><input type="radio" name="ec3" id="ec3-2" value="2"><label for="ec3-2">不同意 (2)</label></div>
+                  <div class="likert-option"><input type="radio" name="ec3" id="ec3-3" value="3" checked><label for="ec3-3">普通 (3)</label></div>
+                  <div class="likert-option"><input type="radio" name="ec3" id="ec3-4" value="4"><label for="ec3-4">同意 (4)</label></div>
+                  <div class="likert-option"><input type="radio" name="ec3" id="ec3-5" value="5"><label for="ec3-5">非常同意 (5)</label></div>
+                </div>
+              </div>
+              <div class="quiz-q-item">
+                <p class="quiz-q-text">EC4：我認為這些評論能真實反映實際消費情況。</p>
+                <div class="likert-options">
+                  <div class="likert-option"><input type="radio" name="ec4" id="ec4-1" value="1"><label for="ec4-1">非常不同意 (1)</label></div>
+                  <div class="likert-option"><input type="radio" name="ec4" id="ec4-2" value="2"><label for="ec4-2">不同意 (2)</label></div>
+                  <div class="likert-option"><input type="radio" name="ec4" id="ec4-3" value="3" checked><label for="ec4-3">普通 (3)</label></div>
+                  <div class="likert-option"><input type="radio" name="ec4" id="ec4-4" value="4"><label for="ec4-4">同意 (4)</label></div>
+                  <div class="likert-option"><input type="radio" name="ec4" id="ec4-5" value="5"><label for="ec4-5">非常同意 (5)</label></div>
+                </div>
+              </div>
+              <div class="quiz-q-item">
+                <p class="quiz-q-text">EC5：消費後，我認為評論對服務的描述大致可信。</p>
+                <div class="likert-options">
+                  <div class="likert-option"><input type="radio" name="ec5" id="ec5-1" value="1"><label for="ec5-1">非常不同意 (1)</label></div>
+                  <div class="likert-option"><input type="radio" name="ec5" id="ec5-2" value="2"><label for="ec5-2">不同意 (2)</label></div>
+                  <div class="likert-option"><input type="radio" name="ec5" id="ec5-3" value="3" checked><label for="ec5-3">普通 (3)</label></div>
+                  <div class="likert-option"><input type="radio" name="ec5" id="ec5-4" value="4"><label for="ec5-4">同意 (4)</label></div>
+                  <div class="likert-option"><input type="radio" name="ec5" id="ec5-5" value="5"><label for="ec5-5">非常同意 (5)</label></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="quiz-nav-buttons">
+              <button class="btn btn-secondary" onclick="nextQuizStep(2)">上一階段</button>
+              <button class="btn btn-accent" onclick="submitEaqualQuiz()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                提交評估數據並分析
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 評估報告區 -->
+        <div id="eaqual-report" class="eaqual-report">
+          <div class="report-header">
+            <span class="section-badge">ANALYSIS REPORT</span>
+            <h3>EAQUAL-15 期望真實性評估結果</h3>
+            <p id="report-target-review-name" style="color:var(--text-muted); font-size:0.9rem; margin-top:0.5rem;"></p>
+          </div>
+
+          <div class="report-grid">
+            <div class="report-chart-container">
+              <div class="eaqual-radar-mock">
+                <div class="radar-circle radar-circle-1"></div>
+                <div class="radar-circle radar-circle-2"></div>
+                <div class="radar-circle radar-circle-3"></div>
+                <span class="radar-label radar-lbl-sc">來源可信 (SC)</span>
+                <span class="radar-label radar-lbl-ca">內容真實 (CA)</span>
+                <span class="radar-label radar-lbl-ec">體驗一致 (EC)</span>
+                <div class="radar-poly-mock"></div>
+              </div>
+            </div>
+
+            <div class="report-scores-list">
+              <div class="report-score-row">
+                <div class="score-row-meta">
+                  <span class="score-row-name">來源可信度 (SC)</span>
+                  <span class="score-row-val" id="report-score-sc">3.00 / 5.00</span>
+                </div>
+                <div class="score-bar-bg">
+                  <div class="score-bar-fill sc-fill" id="bar-sc" style="width: 60%;"></div>
+                </div>
+                <p class="score-interpretation">反映該評論帳號背後的身分真實性、帳號創立時間及發文歷史。分數高表示非免洗帳號。</p>
+              </div>
+
+              <div class="report-score-row">
+                <div class="score-row-meta">
+                  <span class="score-row-name">內容真實性 (CA)</span>
+                  <span class="score-row-val" id="report-score-ca">3.00 / 5.00</span>
+                </div>
+                <div class="score-bar-bg">
+                  <div class="score-bar-fill ca-fill" id="bar-ca" style="width: 60%;"></div>
+                </div>
+                <p class="score-interpretation">反映評論描述中是否涉及真實瞬間 (MOT) 的具體細節（如感官描述、時間空間、人際互動）。</p>
+              </div>
+
+              <div class="report-score-row">
+                <div class="score-row-meta">
+                  <span class="score-row-name">體驗一致性 (EC)</span>
+                  <span class="score-row-val" id="report-score-ec">3.00 / 5.00</span>
+                </div>
+                <div class="score-bar-bg">
+                  <div class="score-bar-fill ec-fill" id="bar-ec" style="width: 60%;"></div>
+                </div>
+                <p class="score-interpretation">購後體驗對比。高分代表實際消費後的品質感知與評論描述一致，無期望落差 (Gap D)。</p>
+              </div>
+
+              <div class="report-score-row" style="margin-top: 1rem; border-top: 1px solid var(--border-glass); padding-top: 1rem;">
+                <div class="score-row-meta">
+                  <span class="score-row-name" style="font-size: 1.1rem;">綜合平均真實性 (Overall)</span>
+                  <span class="score-row-val" id="report-score-total" style="font-size: 1.25rem;">3.00 / 5.00</span>
+                </div>
+                <div class="score-bar-bg" style="height: 10px;">
+                  <div class="score-bar-fill total-fill" id="bar-total" style="width: 60%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="text-align: center; margin-top: 3rem;">
+            <button class="btn btn-secondary" onclick="resetEaqualQuiz()">重新評估其他評論</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 互動留言板區 -->
+    <section id="comments">
+      <div class="section-header">
+        <span class="section-badge">DISCUSSION BOARD</span>
+        <h2>學術留言與期望檢測</h2>
+      </div>
+
+      <div class="comments-section">
+        <!-- 留言表單 -->
+        <div class="glass-card" style="height: fit-content;">
+          <h3 style="font-family: var(--font-title); margin-bottom: 1.5rem; font-size: 1.25rem;">發表您的看法</h3>
+          
+          <form id="comment-form">
+            <div class="form-group">
+              <label for="comment-name">姓名 / 暱稱 *</label>
+              <input type="text" id="comment-name" class="form-control" placeholder="請輸入姓名" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="comment-email">電子信箱（不公開）</label>
+              <input type="email" id="comment-email" class="form-control" placeholder="example@email.com">
+            </div>
+
+            <div class="form-group">
+              <label for="comment-paper">關聯論文討論項目</label>
+              <select id="comment-paper" class="form-control">
+                <option value="general">一般討論（通用留言）</option>
+                <option value="paper-1">一部曲 —— 數位假評的期望扭曲效應</option>
+                <option value="paper-2">二部曲 —— Gap D 獨立缺口三維論證</option>
+                <option value="paper-3">三部曲 —— EAQUAL-15 量表原型建構</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="comment-content">留言內容 *</label>
+              <textarea id="comment-content" class="form-control" placeholder="請輸入留言內容。&#10;💡 送出留言後，系統會運行「MOT Calibrator」即時分析您的留言是否具體並標記評分喔！" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+              送出留言（進行 MOT 檢測）
+            </button>
+          </form>
+        </div>
+
+        <!-- 留言清單 -->
+        <div class="glass-card" style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <h3 style="font-family: var(--font-title); font-size: 1.25rem; border-bottom: 1px solid var(--border-glass); padding-bottom: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
+            <span>討論列表</span>
+            <span style="font-size: 0.8rem; color: var(--text-dark);" id="comments-count">共 0 則</span>
+          </h3>
+          
+          <div class="comments-list" id="comments-list-box">
+            <!-- 留言內容將透過 JS 動態載入 -->
+            <div style="text-align: center; color: var(--text-dark); padding: 2rem;">
+              讀取留言中...
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 學術調查問卷 -->
+    <section id="survey">
+      <div class="section-header">
+        <span class="section-badge">SURVEY SURVEY</span>
+        <h2>假評扭曲效應調查問卷</h2>
+      </div>
+
+      <div class="glass-card survey-section">
+        <p class="survey-intro">
+          此問卷將收集訪客在使用網路評論時的真實經驗。您的作答將儲存於系統後台，為黃國津的 Gap D 與 EDP 提供實證數據基礎！
+        </p>
+
+        <form id="survey-form" class="survey-form">
+          <div class="survey-q-box">
+            <h3 class="survey-q-title">1. 您在日常消費決策（例如：挑選餐廳、飯店、商品）前，閱讀線上評論的頻率為何？</h3>
+            <div class="survey-options">
+              <div class="survey-opt-item">
+                <input type="radio" name="q1" id="q1-opt1" value="總是會閱讀（90%以上）" checked>
+                <label for="q1-opt1">總是會閱讀（90%以上）</label>
+              </div>
+              <div class="survey-opt-item">
+                <input type="radio" name="q1" id="q1-opt2" value="經常閱讀（50% - 90%）">
+                <label for="q1-opt2">經常閱讀（50% - 90%）</label>
+              </div>
+              <div class="survey-opt-item">
+                <input type="radio" name="q1" id="q1-opt3" value="偶爾閱讀（10% - 50%）">
+                <label for="q1-opt3">偶爾閱讀（10% - 50%）</label>
+              </div>
+              <div class="survey-opt-item">
+                <input type="radio" name="q1" id="q1-opt4" value="幾乎不閱讀（10%以下）">
+                <label for="q1-opt4">幾乎不閱讀（10%以下）</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="survey-q-box">
+            <h3 class="survey-q-title">2. 您是否曾有過「因為網路评论呈現極高評價（如高星等、許多大推評論），但實際消费體驗後卻極度失落」的期望落差經驗？（即 Gap D > 0 的上行扭曲）</h3>
+            <div class="survey-options">
+              <div class="survey-opt-item">
+                <input type="radio" name="q2" id="q2-opt1" value="經常發生（多次深刻失落）" checked>
+                <label for="q2-opt1">經常發生（多次深刻失落）</label>
+              </div>
+              <div class="survey-opt-item">
+                <input type="radio" name="q2" id="q2-opt2" value="偶爾發生（少數幾次落差）">
+                <label for="q2-opt2">偶爾發生（少數幾次落差）</label>
+              </div>
+              <div class="survey-opt-item">
+                <input type="radio" name="q2" id="q2-opt3" value="幾乎沒有（實際體驗與評論一致）">
+                <label for="q2-opt3">幾乎沒有（實際體驗與評論一致）</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="survey-q-box">
+            <h3 class="survey-q-title">3. 您對於當前主流評論平台（如 Google Maps、Tripadvisor）上商家評論真實性的整體信任評分為何？（5分代表完全信任，1分代表完全不信任）</h3>
+            <div class="survey-options" style="flex-direction: row; gap: 2rem; justify-content: center;">
+              <div class="survey-opt-item">
+                <input type="radio" name="q3" id="q3-1" value="1"><label for="q3-1">1分 (極低)</label>
+              </div>
+              <div class="survey-opt-item">
+                <input type="radio" name="q3" id="q3-2" value="2"><label for="q3-2">2分</label>
+              </div>
+              <div class="survey-opt-item">
+                <input type="radio" name="q3" id="q3-3" value="3" checked><label for="q3-3">3分 (普通)</label>
+              </div>
+              <div class="survey-opt-item">
+                <input type="radio" name="q3" id="q3-4" value="4"><label for="q3-4">4分</label>
+              </div>
+              <div class="survey-opt-item">
+                <input type="radio" name="q3" id="q3-5" value="5"><label for="q3-5">5分 (極高)</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="survey-q-box">
+            <h3 class="survey-q-title">4. 您的補充建議（如：您認為什麼機制最能減少假評對期望的干擾？）</h3>
+            <div class="form-group">
+              <textarea id="survey-advice" class="form-control" placeholder="請填寫您的看法..."></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="align-self: center; padding: 0.8rem 3rem;">
+            送出學術問卷
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-logo">黃國津個人學術網站</div>
+      <p>研究專題：期望誠實管理 (EHM) & 數位資訊污染缺口 (Gap D) 理論</p>
+      <p style="margin-top: 1rem; font-size: 0.8rem; color: var(--text-dark);">
+        &copy; 2026 黃國津 | 建國科技大學 經營管理系. All Rights Reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "academic-website",
+  "version": "1.0.0",
+  "description": "Dr. Kuo-Chin Huang's Academic Website",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "multer": "^1.4.5-lts.1"
+  },
+  "author": "Dr. Kuo-Chin Huang",
+  "license": "ISC"
+}

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>管理後台 | 黃國津個人學術網站</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Chart.js CDN for statistics rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- 頂部導覽列 -->
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo text-main">
+        黃國津 <span class="logo-badge">後台管理系統</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">返回首頁</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- 登入介面 (Login View) -->
+    <div id="login-section" class="login-overlay">
+      <div class="login-box">
+        <h2>管理員登入</h2>
+        <p>請輸入管理密碼以存取學術管理系統與數據圖表</p>
+        
+        <form id="login-form">
+          <div class="form-group">
+            <label for="admin-password">密碼</label>
+            <input type="password" id="admin-password" class="form-control" placeholder="請輸入密碼 (預設: admin123)" required>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 1rem;">
+            安全登入
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- 主控台介面 (Dashboard View) -->
+    <div id="dashboard-section" class="admin-grid" style="display: none;">
+      <!-- 左側側邊欄 -->
+      <div class="admin-sidebar">
+        <a href="#stats" class="admin-menu-item active" id="menu-stats" onclick="switchPanel('stats')">數據統計看板</a>
+        <a href="#upload" class="admin-menu-item" id="menu-upload" onclick="switchPanel('upload')">論文發布上傳</a>
+        <a href="#comments" class="admin-menu-item" id="menu-comments" onclick="switchPanel('comments')">學術留言管理</a>
+      </div>
+
+      <!-- 右側內容區 -->
+      <div class="admin-content">
+        
+        <!-- 面板 A：數據統計 -->
+        <div id="panel-stats" class="admin-panel active">
+          <div class="section-header" style="margin-bottom: 2rem;">
+            <span class="section-badge">ADMIN DASHBOARD</span>
+            <h2>數據統計分析</h2>
+          </div>
+
+          <div class="dashboard-stats-grid">
+            <div class="dashboard-stat-card">
+              <div class="dashboard-stat-num gradient-text" id="stat-papers-count">3</div>
+              <div class="dashboard-stat-lbl">發表論文數</div>
+            </div>
+            <div class="dashboard-stat-card">
+              <div class="dashboard-stat-num gradient-text" id="stat-comments-count">0</div>
+              <div class="dashboard-stat-lbl">討論留言數</div>
+            </div>
+            <div class="dashboard-stat-card">
+              <div class="dashboard-stat-num gradient-text" id="stat-surveys-count">0</div>
+              <div class="dashboard-stat-lbl">收集問卷量</div>
+            </div>
+          </div>
+
+          <div class="charts-grid">
+            <!-- EAQUAL-15 平均數值 -->
+            <div class="chart-card">
+              <h3>EAQUAL-15 三構面平均得分</h3>
+              <div class="chart-container">
+                <canvas id="chart-eaqual"></canvas>
+              </div>
+            </div>
+
+            <!-- 期望扭曲效應頻率 -->
+            <div class="chart-card">
+              <h3>訪客遭遇 Gap D 期望落差經驗分布</h3>
+              <div class="chart-container">
+                <canvas id="chart-distortion"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 面板 B：上傳論文 -->
+        <div id="panel-upload" class="admin-panel">
+          <div class="section-header" style="margin-bottom: 2rem;">
+            <span class="section-badge">PUBLISH NEW WORK</span>
+            <h2>上傳學術著作</h2>
+          </div>
+
+          <div class="glass-card">
+            <form id="upload-paper-form" enctype="multipart/form-data">
+              <div class="form-group">
+                <label for="paper-title">論文題目 (中文) *</label>
+                <input type="text" id="paper-title" name="title" class="form-control" placeholder="請輸入中文標題" required>
+              </div>
+
+              <div class="form-group">
+                <label for="paper-english-title">論文題目 (英文)</label>
+                <input type="text" id="paper-english-title" name="englishTitle" class="form-control" placeholder="Please enter English title">
+              </div>
+
+              <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                <div>
+                  <label for="paper-author">著者姓名 *</label>
+                  <input type="text" id="paper-author" name="author" class="form-control" value="黃國津" required>
+                </div>
+                <div>
+                  <label for="paper-date">發表日期 *</label>
+                  <input type="date" id="paper-date" name="date" class="form-control" required>
+                </div>
+              </div>
+
+              <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                <div>
+                  <label for="paper-conference">發表研討會/期刊 *</label>
+                  <input type="text" id="paper-conference" name="conference" class="form-control" placeholder="例如：台北科技大學研討會" required>
+                </div>
+                <div>
+                  <label for="paper-status">發表狀態 *</label>
+                  <input type="text" id="paper-status" name="status" class="form-control" placeholder="例如：將於 6/5 發表" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="paper-abstract">中文摘要 *</label>
+                <textarea id="paper-abstract" name="abstract" class="form-control" placeholder="請輸入中文摘要..." required></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="paper-keywords">關鍵詞 (多個以逗號區隔) *</label>
+                <input type="text" id="paper-keywords" name="keywords" class="form-control" placeholder="例如：EAQUAL, Gap D, MACS" required>
+              </div>
+
+              <div class="form-group">
+                <label for="paper-pdf">論文 PDF 檔案上傳 *</label>
+                <input type="file" id="paper-pdf" name="pdf" class="form-control" accept="application/pdf" required style="padding: 0.5rem 1rem;">
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="margin-top: 1rem; width: 200px; justify-content: center;">
+                確認發布上傳
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- 面板 C：留言審查 -->
+        <div id="panel-comments" class="admin-panel">
+          <div class="section-header" style="margin-bottom: 2rem;">
+            <span class="section-badge">COMMENT MODERATOR</span>
+            <h2>學術討論留言審查</h2>
+          </div>
+
+          <div class="glass-card">
+            <div class="admin-table-container">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>姓名</th>
+                    <th>電子信箱</th>
+                    <th>留言內容</th>
+                    <th>討論主題</th>
+                    <th>MOT 真實性標籤</th>
+                    <th>發布時間</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-comments-tbody">
+                  <!-- 留言列表動態載入 -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <p>&copy; 2026 黃國津 | 學術管理後台系統</p>
+    </div>
+  </footer>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>

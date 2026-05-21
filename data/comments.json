@@ -1,0 +1,32 @@
+[
+  {
+    "id": "comment-1779329655558",
+    "name": "廖仁傑老師",
+    "email": "liao@example.com",
+    "content": "國津這次的研究非常深入，Gap D 理論很有開創性！特別是 EAQUAL-15 量表在期望形成階段的測量設計十分嚴謹，老師給予高度肯定。",
+    "paperId": "paper-3",
+    "date": "2026/5/21 上午10:14:15",
+    "motTag": "🟢 高具體性評論",
+    "rating": "high"
+  },
+  {
+    "id": "comment-1779329663108",
+    "name": "行銷公關",
+    "email": "pr@example.com",
+    "content": "超棒！CP值超高！大推特推！超棒的產品！值得一試！",
+    "paperId": "general",
+    "date": "2026/5/21 上午10:14:23",
+    "motTag": "🟡 一般情緒評論",
+    "rating": "medium"
+  },
+  {
+    "id": "comment-1779329671206",
+    "name": "行銷公關",
+    "email": "pr@example.com",
+    "content": "超棒！大推！",
+    "paperId": "general",
+    "date": "2026/5/21 上午10:14:31",
+    "motTag": "🔴 模板化評論",
+    "rating": "low"
+  }
+]
