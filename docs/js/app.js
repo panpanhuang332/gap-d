@@ -204,6 +204,18 @@ function renderPapers(papers, isOffline = false) {
             </div>
             ` : ''}
 
+            ${paper.id === 'paper-2' ? `
+            <div class="proof-container" style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px dashed var(--border); margin-bottom: 1.5rem;">
+              <div style="font-family: var(--mono); font-size: 11px; color: var(--accent); margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                審查結果通知
+              </div>
+              <a href="./images/龍華科大收錄回函.png" target="_blank" title="點擊查看原圖" style="display: block; width: fit-content; max-width: 100%; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); transition: var(--transition-smooth);">
+                <img src="./images/龍華科大收錄回函.png" alt="龍華科大收錄回函" style="display: block; max-width: 240px; width: 100%; height: auto; transition: transform 0.3s; cursor: zoom-in;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+              </a>
+            </div>
+            ` : ''}
+
             ${paper.id === 'paper-3' ? `
             <div class="proof-container" style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px dashed var(--border); margin-bottom: 1.5rem;">
               <div style="font-family: var(--mono); font-size: 11px; color: var(--accent); margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
