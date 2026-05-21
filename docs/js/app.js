@@ -192,6 +192,18 @@ function renderPapers(papers, isOffline = false) {
               ${paper.keywords.map(kw => `<span class="keyword-tag">${kw}</span>`).join('')}
             </div>
 
+            ${paper.id === 'paper-1' ? `
+            <div class="proof-container" style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px dashed var(--border); margin-bottom: 1.5rem;">
+              <div style="font-family: var(--mono); font-size: 11px; color: var(--accent); margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                研討會接受證明
+              </div>
+              <a href="./images/論文接受證明-北商大.jpg" target="_blank" title="點擊查看原圖" style="display: block; width: fit-content; max-width: 100%; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); transition: var(--transition-smooth);">
+                <img src="./images/論文接受證明-北商大.jpg" alt="北商大論文接受證明" style="display: block; max-width: 240px; width: 100%; height: auto; transition: transform 0.3s; cursor: zoom-in;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+              </a>
+            </div>
+            ` : ''}
+
             <div class="paper-actions">
               ${paper.id === 'paper-3' ? `
                 <button class="btn" disabled style="background: rgba(255, 255, 255, 0.05); color: var(--text-dark); cursor: not-allowed; border: 1px solid var(--border-glass); padding: 0.6rem 1.2rem; display: inline-flex; align-items: center; gap: 0.5rem; border-radius: 8px;">
