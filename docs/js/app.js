@@ -84,6 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCalibratorDemos();
   initSecretAdminTrigger();
   initMarcDraftModal();
+  initRevealAnimations();
 });
 
 // 隱藏版管理後台進入機制：連續快速點擊個人「黄」頭像或 LOGO 5 次即可進入後台
@@ -732,4 +733,28 @@ function initMarcDraftModal() {
       alert('複製失敗，請手動選取複製！');
     }
   });
+}
+
+// ==================== Reveal Animation ====================
+function initRevealAnimations() {
+  const reveals = document.querySelectorAll('.reveal');
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.15
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    const intersectingEntries = entries.filter(entry => entry.isIntersecting);
+    if (intersectingEntries.length > 0) {
+      intersectingEntries.forEach((entry, index) => {
+        const el = entry.target;
+        el.style.transitionDelay = `${index * 0.08}s`;
+        el.classList.add('in');
+        observer.unobserve(el);
+      });
+    }
+  }, observerOptions);
+
+  reveals.forEach(el => observer.observe(el));
 }

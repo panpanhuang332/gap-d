@@ -5,9 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>黄國津個人學術網站 | 期望誠實管理 & Gap D 研究三部曲</title>
   <meta name="description" content="建國科技大學經營管理系進修部二技黄國津的個人學術主頁，專注於數位假評的期望扭曲效應、Gap D 數位資訊污染缺口與 EAQUAL-15 期望真實性量表。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <div class="bg-grid"></div>
+  <div class="bg-glow"></div>
+  <div class="bg-grain"></div>
 
   <!-- 頂部導覽列 -->
   <header>
@@ -400,82 +406,71 @@
             <div class="quiz-nav-buttons">
               <button class="btn btn-secondary" onclick="nextQuizStep(2)">上一階段</button>
               <button class="btn btn-accent" onclick="submitEaqualQuiz()">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-                提交評估數據並分析
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polyline points="15 22 22 22 22 15"/></svg>
+                提交評估並產出報告
               </button>
             </div>
           </div>
-        </div>
 
-        <!-- 評估報告區 -->
-        <div id="eaqual-report" class="eaqual-report">
-          <div class="report-header">
-            <span class="section-badge">ANALYSIS REPORT</span>
-            <h3>EAQUAL-15 期望真實性評估結果</h3>
-            <p id="report-target-review-name" style="color:var(--text-muted); font-size:0.9rem; margin-top:0.5rem;"></p>
-          </div>
+          <!-- EAQUAL 報告區 (由 JS 動態顯示) -->
+          <div id="eaqual-report" class="eaqual-report">
+            <h3 style="font-family: var(--font-title); margin-bottom: 1rem; text-align: center; font-size: 1.5rem; font-weight: 700;">EAQUAL-15 期望真實性評估報告</h3>
+            <p id="report-target-review-name" style="text-align: center; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;"></p>
 
-          <div class="report-grid">
-            <div class="report-chart-container">
-              <div class="eaqual-radar-mock">
-                <div class="radar-circle radar-circle-1"></div>
-                <div class="radar-circle radar-circle-2"></div>
-                <div class="radar-circle radar-circle-3"></div>
-                <span class="radar-label radar-lbl-sc">來源可信 (SC)</span>
-                <span class="radar-label radar-lbl-ca">內容真實 (CA)</span>
-                <span class="radar-label radar-lbl-ec">體驗一致 (EC)</span>
-                <div class="radar-poly-mock"></div>
+            <div class="report-grid">
+              <div class="report-left">
+                <!-- 模擬雷達圖 (Clip-Path) -->
+                <div class="radar-box-mock">
+                  <div class="radar-bg-grid"></div>
+                  <!-- 三個頂點的標籤 -->
+                  <div class="radar-lbl-sc">來源可信 SC</div>
+                  <div class="radar-lbl-ca">內容真實 CA</div>
+                  <div class="radar-lbl-ec">體驗一致 EC</div>
+                  <!-- 繪圖多邊形 -->
+                  <div class="radar-poly-mock"></div>
+                </div>
+              </div>
+
+              <div class="report-right">
+                <div class="score-card-group">
+                  <div class="score-row">
+                    <div class="score-info">
+                      <span class="score-label">來源可信度 (SC)</span>
+                      <span class="score-num" id="report-score-sc">0.00 / 5.00</span>
+                    </div>
+                    <div class="score-bar"><div class="score-bar-fill" id="bar-sc"></div></div>
+                  </div>
+
+                  <div class="score-row">
+                    <div class="score-info">
+                      <span class="score-label">內容真實性 (CA)</span>
+                      <span class="score-num" id="report-score-ca">0.00 / 5.00</span>
+                    </div>
+                    <div class="score-bar"><div class="score-bar-fill" id="bar-ca"></div></div>
+                  </div>
+
+                  <div class="score-row">
+                    <div class="score-info">
+                      <span class="score-label">體驗一致性 (EC)</span>
+                      <span class="score-num" id="report-score-ec">0.00 / 5.00</span>
+                    </div>
+                    <div class="score-bar"><div class="score-bar-fill" id="bar-ec"></div></div>
+                  </div>
+
+                  <div class="score-row total">
+                    <div class="score-info">
+                      <span class="score-label">綜合真實性平均 (Overall)</span>
+                      <span class="score-num" id="report-score-total">0.00 / 5.00</span>
+                    </div>
+                    <div class="score-bar"><div class="score-bar-fill" id="bar-total"></div></div>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div class="report-scores-list">
-              <div class="report-score-row">
-                <div class="score-row-meta">
-                  <span class="score-row-name">來源可信度 (SC)</span>
-                  <span class="score-row-val" id="report-score-sc">3.00 / 5.00</span>
-                </div>
-                <div class="score-bar-bg">
-                  <div class="score-bar-fill sc-fill" id="bar-sc" style="width: 60%;"></div>
-                </div>
-                <p class="score-interpretation">反映該評論帳號背後的身分真實性、帳號創立時間及發文歷史。分數高表示非免洗帳號。</p>
-              </div>
-
-              <div class="report-score-row">
-                <div class="score-row-meta">
-                  <span class="score-row-name">內容真實性 (CA)</span>
-                  <span class="score-row-val" id="report-score-ca">3.00 / 5.00</span>
-                </div>
-                <div class="score-bar-bg">
-                  <div class="score-bar-fill ca-fill" id="bar-ca" style="width: 60%;"></div>
-                </div>
-                <p class="score-interpretation">反映評論描述中是否涉及真實瞬間 (MOT) 的具體細節（如感官描述、時間空間、人際互動）。</p>
-              </div>
-
-              <div class="report-score-row">
-                <div class="score-row-meta">
-                  <span class="score-row-name">體驗一致性 (EC)</span>
-                  <span class="score-row-val" id="report-score-ec">3.00 / 5.00</span>
-                </div>
-                <div class="score-bar-bg">
-                  <div class="score-bar-fill ec-fill" id="bar-ec" style="width: 60%;"></div>
-                </div>
-                <p class="score-interpretation">購後體驗對比。高分代表實際消費後的品質感知與評論描述一致，無期望落差 (Gap D)。</p>
-              </div>
-
-              <div class="report-score-row" style="margin-top: 1rem; border-top: 1px solid var(--border-glass); padding-top: 1rem;">
-                <div class="score-row-meta">
-                  <span class="score-row-name" style="font-size: 1.1rem;">綜合平均真實性 (Overall)</span>
-                  <span class="score-row-val" id="report-score-total" style="font-size: 1.25rem;">3.00 / 5.00</span>
-                </div>
-                <div class="score-bar-bg" style="height: 10px;">
-                  <div class="score-bar-fill total-fill" id="bar-total" style="width: 60%;"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div style="text-align: center; margin-top: 3rem;">
-            <button class="btn btn-secondary" onclick="resetEaqualQuiz()">重新評估其他評論</button>
+            <button class="btn btn-secondary" onclick="resetEaqualQuiz()" style="margin: 2rem auto 0; display: block; padding: 0.6rem 2rem; border-radius: 8px;">
+              重新評估下一則評論
+            </button>
           </div>
         </div>
       </div>
@@ -483,114 +478,100 @@
 
     <!-- 延伸應用工具區 -->
     <section id="extension">
-      <div class="section-header">
+      <div class="section-header reveal">
         <span class="section-badge">EXTENDED TOOLS</span>
         <h2>Gap D 延伸應用與口碑治理願景</h2>
       </div>
 
-      <div class="extension-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+      <div class="tools-grid">
         
         <!-- 卡片 1: Proactive Gatekeeper -->
-        <div class="glass-card" style="display: flex; flex-direction: column; justify-content: space-between; border-top: 4px solid var(--primary); transition: var(--transition-smooth);">
-          <div>
-            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;">
-              <div style="background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.2); width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--primary);">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              </div>
-              <h3 style="font-family: var(--font-title); font-size: 1.3rem; font-weight: 700;">類 Truecaller 主動式守門員</h3>
+        <div class="tool reveal">
+          <div class="tool-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>類 Truecaller 主動式守門員</h3>
+          <div class="sub-en">Proactive Gatekeeper</div>
+          <p>
+            將目前的「被動式複製貼上分析 (v0.1)」演進為<strong>「主動式守門員 (Proactive Gatekeeper)」</strong>。本研究之長期願景為開發類似 Truecaller 的即時辨識系統。當消費者在瀏覽 Google Maps 或評論平台時，以瀏覽器擴充功能（Extension）形式在後台自動掃描，並於期望形成前，即時在頁面中呈現評論真實性風險標籤與健康度儀表板。
+          </p>
+          <div class="roadmap">
+            <div class="roadmap-label">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              預計原始工具開發時程表
             </div>
-            <p style="color: var(--secondary); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; margin-bottom: 0.75rem; letter-spacing: 0.5px;">Proactive Gatekeeper</p>
-            <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.25rem; text-align: justify;">
-              將目前的「被動式複製貼上分析 (v0.1)」演進為<strong>「主動式守門員 (Proactive Gatekeeper)」</strong>。本研究之長期願景為開發類似 Truecaller 的即時辨識系統。當消費者在瀏覽 Google Maps 或評論平台時，以瀏覽器擴充功能（Extension）形式在後台自動掃描，並於期望形成前，即時在頁面中呈現評論真實性風險標籤與健康度儀表板。
-            </p>
-            <div style="margin-top: 1.25rem; border-top: 1px dashed rgba(255,255,255,0.1); padding-top: 0.75rem; margin-bottom: 1.25rem;">
-              <h4 style="font-size: 0.85rem; color: var(--text-main); margin-bottom: 0.5rem; font-weight: 700; display: flex; align-items: center; gap: 6px;">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--primary);"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                預計原始工具開發時程表
-              </h4>
-              <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; margin: 0;">
-                <span style="color: var(--primary); font-weight: 600;">2026/09/30 前</span>：完成瀏覽器擴充功能原型開發與實際網頁模擬測試。
-              </p>
+            <div class="roadmap-date">
+              2026/09/30 前
+              <span>完成瀏覽器擴充功能原型開發與實際網頁模擬測試。</span>
             </div>
           </div>
-          <div style="border-top: 1px solid var(--border-glass); padding-top: 1rem; margin-top: auto;">
-            <span style="font-size: 0.8rem; color: var(--text-dark); display: flex; align-items: center; gap: 4px;">
-              <span style="display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--primary); box-shadow: 0 0 8px var(--primary);"></span>
-              定位：消費者端 —— 體制內自動防護
-            </span>
+          <div style="border-top: 1px solid var(--border); padding-top: 1rem; margin-top: auto; font-size: 0.8rem; color: var(--text-3); display: flex; align-items: center; gap: 4px;">
+            <span style="display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--accent); box-shadow: 0 0 8px var(--accent);"></span>
+            定位：消費者端 —— 體制內自動防護
           </div>
         </div>
 
         <!-- 卡片 2: MARC -->
-        <div class="glass-card" style="display: flex; flex-direction: column; justify-content: space-between; border-top: 4px solid var(--accent); transition: var(--transition-smooth);">
-          <div>
-            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;">
-              <div style="background: rgba(168, 85, 247, 0.1); border: 1px solid rgba(168, 85, 247, 0.2); width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--accent);">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-              </div>
-              <h3 style="font-family: var(--font-title); font-size: 1.3rem; font-weight: 700;">MARC 真實評論認證（MOT Authentic Review Certification）</h3>
-            </div>
-            <p style="color: var(--accent); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; margin-bottom: 0.75rem; letter-spacing: 0.5px;">MOT Authentic Review Certification</p>
-            <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.25rem; text-align: justify;">
-              服務業者端主動防禦機制。誠實經營的商家可主動申請認證，授權系統存取其歷史評論語料。系統透過 MOT 演算法排除虛假評價干擾後，計算並頒發<strong>「Gap D 還原後的真實星等（E_authentic Star Rating）」</strong>認證標記，以此高信賴度的第三方信用信號（Signaling Mechanism）發揮市場「良幣驅逐劣幣」的淨化效果。
-            </p>
-            <div style="margin-top: 1.25rem; border-top: 1px dashed rgba(255,255,255,0.1); padding-top: 0.75rem; margin-bottom: 1.25rem;">
-              <h4 style="font-size: 0.85rem; color: var(--text-main); margin-bottom: 0.5rem; font-weight: 700; display: flex; align-items: center; gap: 6px;">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--accent);"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                預計原始工具開發時程表
-              </h4>
-              <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; margin: 0;">
-                <span style="color: var(--accent); font-weight: 600;">2026/11/30 前</span>：完成商家端 API 數據對接與認證演算核心系統測試。
-              </p>
-            </div>
-            <button id="btn-show-marc-draft" class="btn btn-secondary" style="margin-top: 0.5rem; width: 100%; border-radius: 10px; font-size: 0.9rem; padding: 0.6rem; display: flex; align-items: center; justify-content: center; gap: 6px;">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-              查看制度設計草案全文 ↗
-            </button>
+        <div class="tool core reveal">
+          <span class="core-flag">核心應用</span>
+          <div class="tool-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
           </div>
-          <div style="border-top: 1px solid var(--border-glass); padding-top: 1rem; margin-top: auto;">
-            <span style="font-size: 0.8rem; color: var(--text-dark); display: flex; align-items: center; gap: 4px;">
-              <span style="display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--accent); box-shadow: 0 0 8px var(--accent);"></span>
-              定位：服務業者端 —— 信用信號傳遞
-            </span>
+          <h3>MARC 真實評論認證（MOT Authentic Review Certification）</h3>
+          <div class="sub-en">MOT Authentic Review Certification</div>
+          <p>
+            服務業者端主動防禦機制。誠實經營的商家可主動申請認證，授權系統存取其歷史評論語料。系統透過 MOT 演算法排除虛假評價干擾後，計算並頒發<strong>「Gap D 還原後的真實星等（E_authentic Star Rating）」</strong>認證標記，以此高信賴度的第三方信用信號（Signaling Mechanism）發揮市場「良幣驅逐劣幣」的淨化效果。
+          </p>
+          <div class="roadmap">
+            <div class="roadmap-label">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              預計原始工具開發時程表
+            </div>
+            <div class="roadmap-date">
+              2026/11/30 前
+              <span>完成商家端 API 數據對接與認證演算核心系統測試。</span>
+            </div>
+          </div>
+          <button id="btn-show-marc-draft" class="btn btn-secondary" style="margin-top: 1rem; width: 100%; border-radius: 10px; font-size: 0.9rem; padding: 0.6rem; display: flex; align-items: center; justify-content: center; gap: 6px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            查看制度設計草案全文 ↗
+          </button>
+          <div style="border-top: 1px solid var(--border); padding-top: 1rem; margin-top: 1.5rem; font-size: 0.8rem; color: var(--text-3); display: flex; align-items: center; gap: 4px;">
+            <span style="display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--gold); box-shadow: 0 0 8px var(--gold);"></span>
+            定位：服務業者端 —— 信用信號傳遞
           </div>
         </div>
 
         <!-- 卡片 3: MACS -->
-        <div class="glass-card" style="display: flex; flex-direction: column; justify-content: space-between; border-top: 4px solid var(--success); transition: var(--transition-smooth);">
-          <div>
-            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;">
-              <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--success);">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-              </div>
-              <h3 style="font-family: var(--font-title); font-size: 1.3rem; font-weight: 700;">MACS 主動口碑新生態</h3>
+        <div class="tool reveal">
+          <div class="tool-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>MACS 主動口碑新生態</h3>
+          <div class="sub-en">MOT Active Consumer Scoring</div>
+          <p>
+            引導消費者成為數位時代的「米其林神秘客」。本評分系統捨棄傳統的主觀給星與自由評語，改以點選「隨機抽取的 MOT 服務接觸細節題組」。評分時系統從題庫中隨機生成題組以進行<strong>人機驗證（對抗 AI 批量洗分）</strong>，建立一個與現有平台隔離、未被 Gap D 資訊污染的乾淨口碑生態。
+          </p>
+          <div class="roadmap">
+            <div class="roadmap-label">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              預計原始工具開發時程表
             </div>
-            <p style="color: var(--success); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; margin-bottom: 0.75rem; letter-spacing: 0.5px;">MOT Active Consumer Scoring</p>
-            <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.25rem; text-align: justify;">
-              引導消費者成為數位時代的「米其林神秘客」。本評分系統捨棄傳統的主觀給星與自由評語，改以點選「隨機抽取的 MOT 服務接觸細節題組」。評分時系統從題庫中隨機生成題組以進行<strong>人機驗證（對抗 AI 批量洗分）</strong>，建立一個與現有平台隔離、未被 Gap D 資訊污染的乾淨口碑生態。
-            </p>
-            <div style="margin-top: 1.25rem; border-top: 1px dashed rgba(255,255,255,0.1); padding-top: 0.75rem; margin-bottom: 1.25rem;">
-              <h4 style="font-size: 0.85rem; color: var(--text-main); margin-bottom: 0.5rem; font-weight: 700; display: flex; align-items: center; gap: 6px;">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--success);"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                預計原始工具開發時程表
-              </h4>
-              <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; margin: 0;">
-                <span style="color: var(--success); font-weight: 600;">2026/07/31 前</span>：完成 3000 則以上語意庫自各 LLM 萃取，以及 App 開發測試。
-              </p>
+            <div class="roadmap-date">
+              2026/07/31 前
+              <span>完成 3000 則以上語意庫自各 LLM 萃取，以及 App 開發測試。</span>
             </div>
           </div>
-          <div style="border-top: 1px solid var(--border-glass); padding-top: 1rem; margin-top: auto;">
-            <span style="font-size: 0.8rem; color: var(--text-dark); display: flex; align-items: center; gap: 4px;">
-              <span style="display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--success); box-shadow: 0 0 8px var(--success);"></span>
-              定位：消費者社群 —— 平行生態系統
-            </span>
+          <div style="border-top: 1px solid var(--border); padding-top: 1rem; margin-top: auto; font-size: 0.8rem; color: var(--text-3); display: flex; align-items: center; gap: 4px;">
+            <span style="display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--accent); box-shadow: 0 0 8px var(--accent);"></span>
+            定位：消費者社群 —— 平行生態系統
           </div>
         </div>
 
       </div>
 
       <!-- 額外的比較或類比說明 (濾水器 vs 挖新井) -->
-      <div class="glass-card" style="margin-top: 2rem; background: rgba(7, 10, 19, 0.4); border-color: rgba(255,255,255,0.05); display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
+      <div class="glass-card reveal" style="margin-top: 2rem; background: rgba(7, 10, 19, 0.4); border-color: rgba(255,255,255,0.05); display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
         <div style="flex: 1; min-width: 280px;">
           <h4 style="font-family: var(--font-title); font-size: 1.15rem; color: var(--text-main); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--secondary);"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>

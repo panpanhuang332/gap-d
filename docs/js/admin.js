@@ -126,16 +126,16 @@ function renderEaqualChart(sc, ca, ec, total) {
         label: '平均得分 (滿分 5.0)',
         data: [sc.toFixed(2), ca.toFixed(2), ec.toFixed(2), total.toFixed(2)],
         backgroundColor: [
-          'rgba(59, 130, 246, 0.65)',
-          'rgba(6, 182, 212, 0.65)',
-          'rgba(168, 85, 247, 0.65)',
-          'rgba(236, 72, 153, 0.7)'
+          'rgba(43, 182, 196, 0.65)',
+          'rgba(30, 142, 155, 0.65)',
+          'rgba(91, 214, 168, 0.65)',
+          'rgba(6, 182, 212, 0.7)'
         ],
         borderColor: [
-          '#3b82f6',
-          '#06b6d4',
-          '#a855f7',
-          '#ec4899'
+          '#2BB6C4',
+          '#1E8E9B',
+          '#5BD6A8',
+          '#06b6d4'
         ],
         borderWidth: 1.5,
         borderRadius: 8
@@ -178,14 +178,14 @@ function renderDistortionChart(counts) {
       datasets: [{
         data: [counts['經常發生'], counts['偶爾發生'], counts['幾乎沒有']],
         backgroundColor: [
-          'rgba(239, 68, 68, 0.7)',
-          'rgba(245, 158, 11, 0.7)',
-          'rgba(16, 185, 129, 0.7)'
+          'rgba(30, 142, 155, 0.75)',
+          'rgba(43, 182, 196, 0.75)',
+          'rgba(91, 214, 168, 0.75)'
         ],
         borderColor: [
-          '#ef4444',
-          '#f59e0b',
-          '#10b981'
+          '#1E8E9B',
+          '#2BB6C4',
+          '#5BD6A8'
         ],
         borderWidth: 1.5
       }]
