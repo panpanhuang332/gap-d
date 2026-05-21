@@ -121,16 +121,19 @@ function initNavScroll() {
     sections.forEach(section => {
       const sectionTop = section.offsetTop;
       const sectionHeight = section.clientHeight;
-      if (pageYOffset >= sectionTop - 150) {
+      if (window.pageYOffset >= sectionTop - 150) {
         current = section.getAttribute('id');
       }
     });
 
     links.forEach(link => {
-      link.classList.remove('active');
-      const href = link.getAttribute('href').substring(1);
-      if (href === current) {
-        link.classList.add('active');
+      const hrefAttr = link.getAttribute('href');
+      if (hrefAttr && hrefAttr.startsWith('#')) {
+        link.classList.remove('active');
+        const href = hrefAttr.substring(1);
+        if (href === current) {
+          link.classList.add('active');
+        }
       }
     });
   });
