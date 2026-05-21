@@ -528,7 +528,7 @@
               <div style="background: rgba(168, 85, 247, 0.1); border: 1px solid rgba(168, 85, 247, 0.2); width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--accent);">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
               </div>
-              <h3 style="font-family: var(--font-title); font-size: 1.3rem; font-weight: 700;">MARC 真實評論認證</h3>
+              <h3 style="font-family: var(--font-title); font-size: 1.3rem; font-weight: 700;">MARC 真實評論認證（MOT Authentic Review Certification）</h3>
             </div>
             <p style="color: var(--accent); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; margin-bottom: 0.75rem; letter-spacing: 0.5px;">MOT Authentic Review Certification</p>
             <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.25rem; text-align: justify;">
@@ -543,6 +543,10 @@
                 <span style="color: var(--accent); font-weight: 600;">2026/11/30 前</span>：完成商家端 API 數據對接與認證演算核心系統測試。
               </p>
             </div>
+            <button id="btn-show-marc-draft" class="btn btn-secondary" style="margin-top: 0.5rem; width: 100%; border-radius: 10px; font-size: 0.9rem; padding: 0.6rem; display: flex; align-items: center; justify-content: center; gap: 6px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              查看制度設計草案全文 ↗
+            </button>
           </div>
           <div style="border-top: 1px solid var(--border-glass); padding-top: 1rem; margin-top: auto;">
             <span style="font-size: 0.8rem; color: var(--text-dark); display: flex; align-items: center; gap: 4px;">
@@ -595,7 +599,7 @@
           <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; text-align: justify; margin: 0;">
             這三個延伸應用工具體現了從「個體防禦」走向「生態治理」的思維轉變：<br>
             <strong>被動式濾水器（MOT Calibrator v0.1）</strong>：是在已被假評污染的河流中，由消費者端裝設濾水器過濾雜質，屬於體制內的防護，仰賴使用者有意識地複製貼上。<br>
-            <strong>主動式挖新井（MARC 認證 & MACS 評分）</strong>：則是直接在體制外另外挖一口乾淨的新井，藉由隨機接觸題組與第三方星等還原，引導誠信商戶與消費者建立完全無污染的平行信號生態。
+            <strong>主動式挖新井（MARC 真實評論認證（MOT Authentic Review Certification） & MACS 評分）</strong>：則是直接在體制外另外挖一口乾淨的新井，藉由隨機接觸題組與第三方星等還原，引導誠信商戶與消費者建立完全無污染的平行信號生態。
           </p>
         </div>
       </div>
@@ -761,6 +765,293 @@
     </div>
   </footer>
 
-  <script src="js/app.js"></script>
+  <!-- MARC Draft Modal Overlay -->
+<div id="marc-draft-modal" class="modal-overlay">
+  <div class="modal-container">
+    <div class="modal-header">
+      <div style="display: flex; align-items: center; gap: 0.75rem;">
+        <div style="background: rgba(168, 85, 247, 0.1); border: 1px solid rgba(168, 85, 247, 0.2); width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--accent);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+        </div>
+        <div>
+          <h2 style="font-family: var(--font-title); font-size: 1.25rem; font-weight: 700; margin: 0; color: var(--text-main);">MARC 真實評論認證（MOT Authentic Review Certification）</h2>
+          <p style="color: var(--accent); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; margin: 0; letter-spacing: 0.5px;">研究階段制度設計草案 全文</p>
+        </div>
+      </div>
+      <button id="btn-close-marc-draft" class="btn-close">&times;</button>
+    </div>
+    <div class="modal-body">
+      <!-- Modal Actions -->
+      <div class="modal-actions">
+        <button id="btn-copy-marc-draft" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          複製草案全文
+        </button>
+      </div>
+      <div class="draft-doc" id="marc-draft-document-content">
+        <h1>MARC 真實評論認證制度</h1>
+        <p class="english-title">MOT Authentic Review Certification</p>
+        <h3 style="text-align: center; margin-top: -1rem; margin-bottom: 2rem; color: var(--text-muted); font-weight: 500;">MARC-1:2026<br>誠實業者評論真實性管理系統 — 要求與認證準則</h3>
+        <div class="metadata-table">
+          <div class="metadata-grid">
+            <div class="metadata-label">標準編號</div><div style="color: var(--text-muted);">MARC-1:2026</div>
+            <div class="metadata-label">標準名稱</div><div style="color: var(--text-muted);">MARC 真實評論認證制度 — 誠實業者評論真實性管理系統要求與認證準則</div>
+            <div class="metadata-label">版本／狀態</div><div style="color: var(--text-muted);">第一版／草案（供研究與審查用，非正式發行）</div>
+            <div class="metadata-label">適用對象</div><div style="color: var(--text-muted);">自願申請評論真實性認證之服務／電商業者（受認證者）</div>
+            <div class="metadata-label">認證類型</div><div style="color: var(--text-muted);">管理系統認證（流程合規）＋ 語料實測篩檢（結果合規）之雙軌認證</div>
+            <div class="metadata-label">配套機制</div><div style="color: var(--text-muted);">MOT Calibrator（消費端偵測）、MACS 主動評分系統（生態端重建）</div>
+            <div class="metadata-label">理論依據</div><div style="color: var(--text-muted);">MOT 服務接觸理論、Gap D 數位資訊污染缺口、Spence 訊號理論、Akerlof 市場失靈</div>
+            <div class="metadata-label">制　　定</div><div style="color: var(--text-muted);">黄國津（建國科技大學）</div>
+          </div>
+          <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px dashed var(--border-glass); font-size: 0.85rem; color: var(--warning); line-height: 1.5;">
+            <strong>草案聲明：</strong>本文件為學術研究階段之制度設計草案。第 6.2 條（B 域）所載之各項量化門檻，須俟 Gap D 黄金標準語料庫建置與校準完成後始能定值；在校準完成前，得採相對門檻（如優於同業中位數）過渡。
+          </div>
+        </div>
+        <h2>前　言</h2>
+        <p>本標準提供一套可供第三方稽核與認證之框架，用以辨識並彰顯「在評論生態中誠實經營」之業者。其設計目的並非審查單一則評論之真偽，而係認證業者所建立之「評論真實性管理系統」，以及該系統所產出之評論語料是否通過客觀篩檢。此一定位與 ISO 9001 相同——後者認證的是品質管理系統，而非個別產品。</p>
+        <p>本標準之特殊性在於採「雙軌認證」：受認證者除須建立並維持符合第 5 章之管理系統（流程合規）外，其實際評論語料亦須通過第 6.2 條以 MOT Calibrator 引擎執行之 Gap D 篩檢（結果合規）。二者缺一不可。</p>
+        <p>本標準以「應」表示要求（強制），以「不得」表示禁止，以「宜」表示建議，以「得」表示許可。</p>
+        <h2>0　引言</h2>
+        <h3>0.1　總則</h3>
+        <p>數位假評對服務業之資訊環境造成系統性污染。依 Gap D 框架，假評於消費者形成服務期望之前即扭曲其資訊基礎，使 PZB 服務品質缺口模型中的「期望（E）」遭到上行或下行之扭曲，進而引發期望扭曲效應（EDP）。在此環境下，誠實業者與操弄評論之業者難以被市場區辨，形成 Akerlof 所述之「檸檬市場」失靈。</p>
+        <h3>0.2　理論基礎與訊號機制</h3>
+        <p>本標準將認證視為一種 Spence 訊號（signal）：誠實業者透過承擔可驗證之認證成本，向市場釋放其評論生態真實之訊號，從而與無法或不願承擔此成本之操弄型業者分離。認證之有效性，取決於該訊號是否「難以被偽冒且成本不對稱」——此即第 6.2 條（指標門檻）與第 7.3 條（語料篩檢）採對抗性設計之理由。</p>
+        <h3>0.3　與其他治理機制之關係</h3>
+        <p>MARC 為 Gap D 三層治理架構中之「業者端、源頭治理」機制，與下列二者互補：</p>
+        <p>MOT Calibrator：消費端偵測工具，於消費者閱讀評論時即時校準期望。</p>
+        <p>MACS 主動評分系統：生態端重建機制，以點選式 MOT 語意題組取代主觀評星。</p>
+        <p>三者共同構成由偵測、源頭治理至生態重建之完整回應。</p>
+        <h3>0.4　過程導向與風險思維</h3>
+        <p>本標準採過程導向與風險基礎思維（risk-based thinking），並依 PDCA（規劃—執行—查核—行動）循環運作，與 ISO 管理系統標準之高階結構一致，俾利已導入 ISO 之業者整合既有制度。</p>
+        <h2>1　適用範圍</h2>
+        <p>本標準規定業者建立、實施、維持並持續改善「評論真實性管理系統」之要求，並規定第三方認證之準則與流程。</p>
+        <p>本標準適用於任何自願申請認證、且其商業模式依賴線上評論作為消費者決策資訊來源之服務或電商業者，不分規模與業別。本標準之認證範圍由受認證者界定之評論生態邊界（納管之平台、通路與評論來源）所決定。</p>
+        <h2>2　規範性引用文件</h2>
+        <p>下列文件之全部或部分內容，構成本標準應用所必需之規範。</p>
+        <p>MOT 服務接觸理論（Carlzon, 1987）及其於評論語言印記之操作化。</p>
+        <p>Gap D 數位資訊污染缺口框架（黄國津，2026a／2026b）。</p>
+        <p>MOT Calibrator 真實性評分引擎規格：具體性分數（SS）、情感細粒度（SG）、n-gram 相似度與 LLM 語意推理層。</p>
+        <p>個人資料保護法（中華民國）及其施行細則。</p>
+        <p>ISO 9001 品質管理系統（高階結構與稽核原則之參酌依據）。</p>
+        <h2>3　用語及定義</h2>
+        <p style="margin-top: 0.75rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-main);">3.1 評論真實性管理系統　業者為確保其評論生態之徵集、產出與揭露符合真實性原則所建立之政策、程序、職責與紀錄之總體。</p>
+        <p style="margin-top: 0.75rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-main);">3.2 受認證者　申請或取得 MARC 認證之業者。</p>
+        <p style="margin-top: 0.75rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-main);">3.3 認證機構　獨立於受認證者、執行稽核並作成認證決定之第三方組織。</p>
+        <p style="margin-top: 0.75rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-main);">3.4 Gap D 篩檢　以 MOT Calibrator 引擎對受認證者之評論語料進行真實性指標計算與風險分級之程序。</p>
+        <p style="margin-top: 0.75rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-main);">3.5 具體性分數（SS）　衡量評論是否包含 MOT 服務接觸點具體語言印記之指標；分數愈高，真實性近似程度愈高。</p>
+        <p style="margin-top: 0.75rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-main);">3.6 高風險評論　經 Gap D 篩檢整體分數低於 35（「✗ 高風險評論（情深不壽）」）之評論。</p>
+        <p style="margin-top: 0.75rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-main);">3.7 誘因評論　業者以折扣、贈品、點數或其他對價，向顧客換取之評論。</p>
+        <p style="margin-top: 0.75rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-main);">3.8 不符合事項　未滿足本標準某一要求之情形，分為重大不符合、次要不符合與觀察事項三級（見第 8 章）。</p>
+        <h2>4　認證原則</h2>
+        <p>本標準之認證決定應依循下列四項原則：</p>
+        <p>原則一　真實性優先——評論應反映真實之服務接觸經驗，業者不得以任何方式產製、購買或誘導虛構評論。 【強制原則】</p>
+        <p>原則二　全量無差別——評論之徵集應對全體交易顧客一致為之，不得選擇性放大正向、抑制負向。 【強制原則】</p>
+        <p>原則三　可驗證透明——認證狀態、真實星等與誘因揭露應公開且可由第三方驗證。 【強制原則】</p>
+        <p>原則四　對抗性穩健——指標與門檻之設計應抵抗策略性操弄（Goodhart 風險），避免業者「為通過而優化」。 【強制原則】</p>
+        <h2>5　評論真實性管理系統要求</h2>
+        <p>本章規定受認證者應建立之管理系統（流程合規），為第一階段文件審查之依據。</p>
+        <h3>5.1　組織情境</h3>
+        <p>業者應界定其評論生態之範圍，辨識納管之平台、通路與評論來源，並識別影響評論真實性之內外部議題與利害關係人需求。</p>
+        <h3>5.2　領導與承諾</h3>
+        <p>最高管理者應展現領導與承諾，核准並簽署「評論真實性政策」，明文禁止購買假評、壓制合法負評，並確保資源與職責之配置。</p>
+        <h3>5.3　風險規劃</h3>
+        <p>業者應以風險基礎思維辨識其評論操弄風險點（例如促銷檔期灌評、員工或關係人代寫、競爭者攻擊型假評），並規劃因應措施與可量測之真實性目標。</p>
+        <h3>5.4　支援</h3>
+        <p>業者應提供必要資源，指派評論誠信負責人，確保人員能力，並建立文件化資訊（政策、程序、紀錄）之管制。</p>
+        <h3>5.5　營運管控</h3>
+        <p>業者應就評論之徵集、處理與揭露建立並實施管制程序，使其符合第 6 章各域之檢驗要求。</p>
+        <h3>5.6　績效評估</h3>
+        <p>業者應定期以 Gap D 指標監測其評論生態之真實性，執行內部稽核與管理階層審查，並保存證據。</p>
+        <h3>5.7　改善</h3>
+        <p>業者應就不符合事項採取矯正措施，分析根本原因，防止再發生，並持續改善其管理系統。</p>
+        <h2>6　檢驗條款</h2>
+        <p>本章為認證稽核之核心檢驗項目。每一檢驗項目標註其嚴重度等級：</p>
+        <p>【重大】違反者構成重大不符合，不予發證或撤證；　【次要】限期矯正；　【觀察】改善建議，不影響發證。</p>
+        <h3>6.1　A 域：評論徵集誠信</h3>
+        <p style="margin-top: 0.75rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-main);">A1　受認證者不得向任何第三方購買評論，亦不得使用評論農場、機器人或人頭帳號產製評論。 <span class="badge-req major">重大</span></p>
+        <p style="margin-top: 0.75rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-main);">A2　凡涉及誘因之評論（以折扣、贈品、點數等換取評論），業者應予揭露，且不得以「給予正向評價」作為提供誘因之條件。 <span class="badge-req major">重大</span></p>
+        <p style="margin-top: 0.75rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-main);">A3　評論邀請應對全體完成交易之顧客以一致方式發送，不得僅選擇性邀請預期滿意之顧客。 <span class="badge-req minor">次要</span></p>
+        <p style="margin-top: 0.75rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-main);">A4　業者不得刪除、隱藏、降權或以其他方式壓制合法之負面評論；任何評論之移除應留存正當理由與紀錄。 <span class="badge-req major">重大</span></p>
+        <p style="margin-top: 0.75rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-main);">A5　業者不得將 AI 生成內容偽稱為真人評論提交；若提供顧客 AI 輔助撰寫工具，應予揭露並於系統標記。 <span class="badge-req minor">次要</span></p>
+        <h3>6.2　B 域：真實性指標門檻（依 Gap D 引擎實測）</h3>
+        <p>本域為「結果合規」之核心，由認證機構以 MOT Calibrator 引擎對抽樣語料實測。各門檻值依語料校準另定，校準前得採相對門檻。</p>
+        <p style="margin-top: 0.75rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-main);">B1　受測語料之具體性分數（SS）中位數應達認證門檻值。 <span class="badge-req minor">次要</span></p>
+        <p style="margin-top: 0.75rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-main);">B2　經篩檢標記為「高風險評論（情深不壽，整體分數 < 35）」之比例應低於規定上限；逾嚴重上限者構成重大不符合。 【重大／次要】</p>
+        <p style="margin-top: 0.75rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-main);">B3　評論之 n-gram 餘弦相似度分布應無異常聚集，以排除模板化或批量代寫。 <span class="badge-req minor">次要</span></p>
+        <p style="margin-top: 0.75rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-main);">B4　情感細粒度（SG）分布應呈自然多樣，非人工極端化（如全數最高評等或情緒單一）。 <span class="badge-req obs">觀察</span></p>
+        <p style="margin-top: 0.75rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-main);">B5　評論之時間序列應無異常爆量（突波），以排除促銷檔期集中灌評。 <span class="badge-req minor">次要</span></p>
+        <p style="margin-top: 0.75rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-main);">B6　評論者帳號之多樣性應達標，無新建或可疑帳號之高度集中。 <span class="badge-req minor">次要</span></p>
+        <h3>6.3　C 域：評論管理流程</h3>
+        <p style="margin-top: 0.75rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-main);">C1　業者應建立並維持經最高管理者核准之「評論真實性政策」書面文件。 <span class="badge-req minor">次要</span></p>
+        <p style="margin-top: 0.75rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-main);">C2　業者應指派評論誠信負責人並界定其權責。 <span class="badge-req obs">觀察</span></p>
+        <p style="margin-top: 0.75rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-main);">C3　業者應就所有評論徵集活動留存稽核軌跡（時間、對象、誘因內容、發送方式）。 <span class="badge-req minor">次要</span></p>
+        <p style="margin-top: 0.75rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-main);">C4　業者應建立可疑假評之偵測、通報與申訴處理程序，且範圍應涵蓋針對自身之惡意攻擊型負面假評。 <span class="badge-req minor">次要</span></p>
+        <p style="margin-top: 0.75rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-main);">C5　業者應對相關人員實施評論誠信教育訓練並留存紀錄。 <span class="badge-req obs">觀察</span></p>
+        <h3>6.4　D 域：透明與揭露</h3>
+        <p style="margin-top: 0.75rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-main);">D1　業者應公開展示 MARC 標章及可線上驗證之認證編號，以防偽冒。 <span class="badge-req minor">次要</span></p>
+        <p style="margin-top: 0.75rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-main);">D2　業者宜揭露其誘因評論之占比。 <span class="badge-req obs">觀察</span></p>
+        <p style="margin-top: 0.75rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-main);">D3　業者於將評論資料送交 Gap D 篩檢前，應取得資料當事人之授權同意，並符合個人資料保護法之規範。 <span class="badge-req major">重大</span></p>
+        <p style="margin-top: 0.75rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-main);">D4　業者對外展示之「真實星等」應與 Gap D 篩檢後之結果一致，不得另行美化或選擇性呈現。 <span class="badge-req major">重大</span></p>
+        <h3>6.5　E 域：持續監測</h3>
+        <p style="margin-top: 0.75rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-main);">E1　業者應定期（建議每季）自行重篩語料並留存報告。 <span class="badge-req minor">次要</span></p>
+        <p style="margin-top: 0.75rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-main);">E2　業者應建立真實性指標漂移（drift）之告警機制，於指標惡化時啟動矯正。 <span class="badge-req minor">次要</span></p>
+        <p style="margin-top: 0.75rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-main);">E3　業者應配合年度監督稽核，並於認證效期屆滿前完成再認證。 <span class="badge-req minor">次要</span></p>
+        <h2>7　認證流程</h2>
+        <h3>7.1　申請與資格</h3>
+        <p>業者填具申請表（附錄 C），界定認證範圍並提交評論資料授權聲明後，向認證機構提出申請。</p>
+        <h3>7.2　第一階段：文件審查</h3>
+        <p>認證機構審查受認證者依第 5 章建立之管理系統文件（政策、程序、職責、紀錄），確認制度完備性與第二階段稽核之就緒度。</p>
+        <h3>7.3　第二階段：實地稽核與語料篩檢</h3>
+        <p>認證機構執行實地稽核以查核第 6 章 A、C、D、E 域之落實，並以 MOT Calibrator 引擎對抽樣語料執行 Gap D 篩檢（B 域）。語料抽樣應採隨機方式，且門檻不對受認證者完全公開，以維持對抗性穩健（呼應原則四）。</p>
+        <h3>7.4　認證決定與發證</h3>
+        <p>無重大不符合、且次要不符合已提出可接受之矯正措施者，由認證機構作成發證決定，核發 MARC 認證與可驗證之認證編號。認證效期為三年。</p>
+        <h3>7.5　監督稽核</h3>
+        <p>認證效期內每年至少執行一次監督稽核，含語料重篩，以確認持續符合。</p>
+        <h3>7.6　再認證</h3>
+        <p>認證效期屆滿前應執行再認證，全面重評管理系統與語料，通過後展延效期。</p>
+        <h3>7.7　標章使用規範</h3>
+        <p>受認證者僅得於認證範圍內使用 MARC 標章，且應併同標示認證編號與等級。認證經暫停或撤銷者，應立即停止使用標章。標章不得以隱含「未認證者即為造假」之方式使用，以避免對第三人之妨害名譽。</p>
+        <h2>8　不符合事項分級與處置</h2>
+        <table class="draft-table">
+          <thead>
+            <tr><th>等級</th><th>定義</th><th>處置</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>重大不符合</strong></td><td>違反強制要求，致評論真實性根本受損（如 A1 購買假評、A4 壓制負評、D3 違反個資、D4 假星等，或 B2 逾嚴重上限）。</td><td>不予發證；已發證者暫停或撤銷認證。</td></tr>
+            <tr><td><strong>次要不符合</strong></td><td>未根本損及真實性之單點缺失（如文件、紀錄、訓練、揭露不完整）。</td><td>限期（建議 90 日內）提交並完成矯正措施，經驗證後發證或維持。</td></tr>
+            <tr><td><strong>觀察事項</strong></td><td>尚符合要求，但具改善空間之事項。</td><td>列為改善建議，不影響認證決定。</td></tr>
+          </tbody>
+        </table>
+        <h2>9　認證等級（選用）</h2>
+        <p>為提供市場差異化誘因，認證機構得依語料實測結果區分三個等級。各等級之門檻於語料校準後定值，下表數值為示意。</p>
+        <table class="draft-table">
+          <thead>
+            <tr><th>等級</th><th>主要條件（示意）</th><th>意義</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>標準級</strong></td><td>無重大不符合；高風險比例 < 10%。</td><td>評論生態通過真實性基本門檻。</td></tr>
+            <tr><td><strong>銀級</strong></td><td>標準級條件 + SS 中位數優於同業 P50。</td><td>評論具體性顯著優於同業。</td></tr>
+            <tr><td><strong>金級</strong></td><td>銀級條件 + 高風險比例 < 3% + 連續兩次監督稽核無次要不符合。</td><td>評論生態真實性達標竿水準。</td></tr>
+          </tbody>
+        </table>
+        <h2>附錄 A（規範性）　稽核檢核表</h2>
+        <p>稽核員逐條判定，於「判定」欄勾選，並於最末欄載明客觀證據與稽核發現。</p>
+        <table class="draft-table">
+          <thead>
+            <tr><th>條款</th><th>檢驗要求（摘要）</th><th>嚴重度</th><th>判定</th><th>客觀證據／發現</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>A1</strong></td><td>不購買評論、不使用農場／機器人／人頭帳號</td><td>重大</td><td><code style="color:var(--text-muted);">□符 □不符 □不適用</code></td><td></td></tr>
+            <tr><td><strong>A2</strong></td><td>誘因評論揭露，且誘因不以正向評價為條件</td><td>重大</td><td><code style="color:var(--text-muted);">□符 □不符 □不適用</code></td><td></td></tr>
+            <tr><td><strong>A3</strong></td><td>評論邀請對全體顧客無差別發送</td><td>次要</td><td><code style="color:var(--text-muted);">□符 □不符 □不適用</code></td><td></td></tr>
+            <tr><td><strong>A4</strong></td><td>不刪除／隱藏／壓制合法負評，移除留紀錄</td><td>重大</td><td><code style="color:var(--text-muted);">□符 □不符 □不適用</code></td><td></td></tr>
+            <tr><td><strong>A5</strong></td><td>不以 AI 內容偽稱真人評論；AI 輔助須揭露標記</td><td>次要</td><td><code style="color:var(--text-muted);">□符 □不符 □不適用</code></td><td></td></tr>
+            <tr><td><strong>B1</strong></td><td>SS 中位數達門檻</td><td>次要</td><td><code style="color:var(--text-muted);">□符 □不符 □不適用</code></td><td></td></tr>
+            <tr><td><strong>B2</strong></td><td>高風險評論（<35）比例低於上限</td><td>重大／次要</td><td><code style="color:var(--text-muted);">□符 □不符 □不適用</code></td><td></td></tr>
+            <tr><td><strong>B3</strong></td><td>n-gram 相似度無異常聚集</td><td>次要</td><td><code style="color:var(--text-muted);">□符 □不符 □不適用</code></td><td></td></tr>
+            <tr><td><strong>B4</strong></td><td>SG 情感分布自然多樣</td><td>觀察</td><td><code style="color:var(--text-muted);">□符 □不符 □不適用</code></td><td></td></tr>
+            <tr><td><strong>B5</strong></td><td>評論時間序列無異常突波</td><td>次要</td><td><code style="color:var(--text-muted);">□符 □不符 □不適用</code></td><td></td></tr>
+            <tr><td><strong>B6</strong></td><td>評論者帳號多樣性達標</td><td>次要</td><td><code style="color:var(--text-muted);">□符 □不符 □不適用</code></td><td></td></tr>
+            <tr><td><strong>C1</strong></td><td>具管理者核准之評論真實性政策文件</td><td>次要</td><td><code style="color:var(--text-muted);">□符 □不符 □不適用</code></td><td></td></tr>
+            <tr><td><strong>C2</strong></td><td>指派評論誠信負責人並界定權責</td><td>觀察</td><td><code style="color:var(--text-muted);">□符 □不符 □不適用</code></td><td></td></tr>
+            <tr><td><strong>C3</strong></td><td>評論徵集活動留存稽核軌跡</td><td>次要</td><td><code style="color:var(--text-muted);">□符 □不符 □不適用</code></td><td></td></tr>
+            <tr><td><strong>C4</strong></td><td>可疑假評偵測／通報／申訴程序（含攻擊型負評）</td><td>次要</td><td><code style="color:var(--text-muted);">□符 □不符 □不適用</code></td><td></td></tr>
+            <tr><td><strong>C5</strong></td><td>人員評論誠信訓練並留紀錄</td><td>觀察</td><td><code style="color:var(--text-muted);">□符 □不符 □不適用</code></td><td></td></tr>
+            <tr><td><strong>D1</strong></td><td>公開展示標章與可驗證認證編號</td><td>次要</td><td><code style="color:var(--text-muted);">□符 □不符 □不適用</code></td><td></td></tr>
+            <tr><td><strong>D2</strong></td><td>揭露誘因評論占比</td><td>觀察</td><td><code style="color:var(--text-muted);">□符 □不符 □不適用</code></td><td></td></tr>
+            <tr><td><strong>D3</strong></td><td>送篩檢前取得資料授權、符合個資法</td><td>重大</td><td><code style="color:var(--text-muted);">□符 □不符 □不適用</code></td><td></td></tr>
+            <tr><td><strong>D4</strong></td><td>對外真實星等與篩檢結果一致</td><td>重大</td><td><code style="color:var(--text-muted);">□符 □不符 □不適用</code></td><td></td></tr>
+            <tr><td><strong>E1</strong></td><td>定期（季）自行重篩並留報告</td><td>次要</td><td><code style="color:var(--text-muted);">□符 □不符 □不適用</code></td><td></td></tr>
+            <tr><td><strong>E2</strong></td><td>建立指標漂移告警與矯正啟動</td><td>次要</td><td><code style="color:var(--text-muted);">□符 □不符 □不適用</code></td><td></td></tr>
+            <tr><td><strong>E3</strong></td><td>配合年度監督稽核與期前再認證</td><td>次要</td><td><code style="color:var(--text-muted);">□符 □不符 □不適用</code></td><td></td></tr>
+          </tbody>
+        </table>
+        <p>受稽核業者：</p>
+        <p>認證範圍：</p>
+        <p>稽核日期：</p>
+        <p>稽核員簽署：</p>
+        <h2>附錄 B（規範性）　不符合事項報告表（CAR）</h2>
+        <div style="border: 1px solid var(--border-glass); padding: 1.25rem; border-radius: 8px; margin: 1.5rem 0; background: rgba(255,255,255,0.01);">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.9rem;">
+            <div><strong>不符合事項編號：</strong>________________</div>
+            <div><strong>受稽核業者：</strong>________________</div>
+            <div><strong>稽核日期／稽核員：</strong>________________</div>
+            <div><strong>相關條款：</strong>________________</div>
+            <div style="grid-column: span 2;"><strong>不符合等級：</strong> □ 重大不符合 &nbsp;&nbsp; □ 次要不符合 &nbsp;&nbsp; □ 觀察事項</div>
+            <div style="grid-column: span 2; margin-top: 0.5rem;"><strong>事實描述：</strong><br><br><br></div>
+            <div style="grid-column: span 2;"><strong>客觀證據：</strong><br><br><br></div>
+            <div><strong>要求矯正期限：</strong>________________</div>
+            <div style="grid-column: span 2; margin-top: 0.5rem; border-top: 1px dashed var(--border-glass); padding-top: 0.5rem;"><strong>矯正措施（業者填寫）：</strong><br><br><br></div>
+            <div style="grid-column: span 2; border-top: 1px dashed var(--border-glass); padding-top: 0.5rem;"><strong>矯正驗證（稽核員填寫）：</strong><br><br><br></div>
+            <div style="grid-column: span 2; border-top: 1px dashed var(--border-glass); padding-top: 0.5rem;"><strong>結案狀態：</strong> □ 已結案 &nbsp;&nbsp; 日期：__________ &nbsp;&nbsp; 業者簽署：__________ &nbsp;&nbsp; 稽核員簽署：__________</div>
+          </div>
+        </div>
+        <p>□ 已結案　日期：__________　業者簽署：__________　稽核員簽署：__________</p>
+        <h2>附錄 C（資訊性）　認證申請表</h2>
+        <div style="border: 1px solid var(--border-glass); padding: 1.25rem; border-radius: 8px; margin: 1.5rem 0; background: rgba(255,255,255,0.01);">
+          <div style="display: grid; grid-template-columns: 120px 1fr; gap: 0.75rem; font-size: 0.9rem;">
+            <div class="metadata-label">業者名稱／統編</div><div>________________</div>
+            <div class="metadata-label">負責人／聯絡人</div><div>________________</div>
+            <div class="metadata-label">電話／電子郵件</div><div>________________</div>
+            <div class="metadata-label">申請等級</div><div>□ 標準級 &nbsp;&nbsp; □ 銀級 &nbsp;&nbsp; □ 金級</div>
+            <div class="metadata-label">認證範圍</div><div>________________</div>
+            <div class="metadata-label">評論累計數量</div><div>________________</div>
+            <div class="metadata-label" style="grid-column: span 2; margin-top: 0.5rem; border-top: 1px dashed var(--border-glass); padding-top: 0.5rem;">資料授權聲明</div>
+            <div style="grid-column: span 2; color: var(--text-muted); font-size: 0.85rem;">本業者確認，提交 Gap D 篩檢之評論資料已依個人資料保護法取得當事人授權同意。</div>
+            <div class="metadata-label" style="grid-column: span 2; text-align: right; margin-top: 1rem;">申請人簽署／日期：________________________</div>
+          </div>
+        </div>
+        <h2>附錄 D（資訊性）　Gap D 語料篩檢摘要表</h2>
+        <p>由認證機構於第二階段（7.3）填具，作為 B 域判定之依據。</p>
+        <table class="draft-table">
+          <thead>
+            <tr><th>條款</th><th>篩檢指標</th><th>門檻（校準後定值）</th><th>實測值</th><th>判定</th></tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+        <p>抽樣語料樣本數（n）</p>
+        <p>□符 □不符</p>
+        <p>B1</p>
+        <p>具體性分數（SS）中位數</p>
+        <p>≥ 門檻</p>
+        <p>□符 □不符</p>
+        <p>B2</p>
+        <p>高風險評論（<35）比例</p>
+        <p>< 上限</p>
+        <p>□符 □不符</p>
+        <p>B3</p>
+        <p>n-gram 相似度異常聚集</p>
+        <p>無</p>
+        <p>□符 □不符</p>
+        <p>B4</p>
+        <p>情感細粒度（SG）分布</p>
+        <p>自然多樣</p>
+        <p>□符 □不符</p>
+        <p>B5</p>
+        <p>時間序列突波</p>
+        <p>無</p>
+        <p>□符 □不符</p>
+        <p>B6</p>
+        <p>帳號多樣性／集中度</p>
+        <p>達標</p>
+        <p>□符 □不符</p>
+        <h2>附錄 E（資訊性）　標章使用與防偽</h2>
+        <p>受認證者僅得於認證範圍內使用 MARC 標章，並應併同標示認證編號與等級（標準／銀／金）。</p>
+        <p>標章應連結至可公開驗證之認證查詢頁，供消費者即時核對效期與範圍。</p>
+        <p>認證經暫停或撤銷者，受認證者應於通知後立即停止使用標章。</p>
+        <p>標章不得以隱含「未取得認證者即為造假」之方式使用或宣傳，以避免對第三人之妨害名譽。</p>
+        <p>— 本標準（草案）結束 —</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Toast Notification for Copy success -->
+<div id="toast-copy-success" class="toast-notification">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+  已成功複製草案全文到您的剪貼簿！
+</div>
+
+<script src="js/app.js"></script>
 </body>
 </html>

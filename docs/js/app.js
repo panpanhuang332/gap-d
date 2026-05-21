@@ -83,6 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavScroll();
   initCalibratorDemos();
   initSecretAdminTrigger();
+  initMarcDraftModal();
 });
 
 // 隱藏版管理後台進入機制：連續快速點擊個人「黄」頭像或 LOGO 5 次即可進入後台
@@ -664,3 +665,71 @@ document.getElementById('survey-form').addEventListener('submit', async (e) => {
     document.getElementById('survey-form').reset();
   }
 });
+
+
+// ==================== MARC 制度設計草案彈窗功能 ====================
+function initMarcDraftModal() {
+  const modal = document.getElementById('marc-draft-modal');
+  const btnShow = document.getElementById('btn-show-marc-draft');
+  const btnClose = document.getElementById('btn-close-marc-draft');
+  const btnCopy = document.getElementById('btn-copy-marc-draft');
+  const toast = document.getElementById('toast-copy-success');
+  const docContent = document.getElementById('marc-draft-document-content');
+
+  if (!modal || !btnShow || !btnClose || !btnCopy || !docContent) return;
+
+  // Open modal
+  btnShow.addEventListener('click', () => {
+    modal.style.display = 'flex';
+    // Force a reflow to make the transition work
+    modal.offsetHeight;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  });
+
+  // Close modal function
+  const closeModal = () => {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+    // Wait for the transition to finish before hiding the display
+    setTimeout(() => {
+      if (!modal.classList.contains('active')) {
+        modal.style.display = 'none';
+      }
+    }, 400); // match transition duration in CSS
+  };
+
+  btnClose.addEventListener('click', closeModal);
+
+  // Close when clicking outside modal container
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  // Close on Escape key
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+      closeModal();
+    }
+  });
+
+  // Copy draft full text to clipboard
+  btnCopy.addEventListener('click', async () => {
+    try {
+      // Get the full text content, formatted clean
+      const textToCopy = docContent.innerText;
+      await navigator.clipboard.writeText(textToCopy);
+      
+      // Show success toast
+      toast.classList.add('active');
+      setTimeout(() => {
+        toast.classList.remove('active');
+      }, 3000);
+    } catch (err) {
+      console.error('複製失敗:', err);
+      alert('複製失敗，請手動選取複製！');
+    }
+  });
+}
