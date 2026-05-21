@@ -341,6 +341,7 @@ main {
   font-family: var(--font-title);
   font-size: 2.5rem;
   font-weight: 700;
+  object-fit: cover;
 }
 
 .profile-card h3 {
