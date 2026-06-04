@@ -230,16 +230,10 @@ function renderPapers(papers, isOffline = false) {
 
 
             <div class="paper-actions">
-              ${paper.id === 'paper-3' ? `
-                <button class="btn" disabled style="background: rgba(255, 255, 255, 0.05); color: var(--text-dark); cursor: not-allowed; border: 1px solid var(--border-glass); padding: 0.6rem 1.2rem; display: inline-flex; align-items: center; gap: 0.5rem; border-radius: 8px;">
-                  🔒 6/5 發表後公開
-                </button>
-              ` : `
-                <a href="${downloadUrl}" class="btn btn-primary" download="${paper.title}.pdf">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                  下載論文 PDF
-                </a>
-              `}
+              <a href="${downloadUrl}" class="btn btn-primary" download="${paper.title}.pdf">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                下載論文 PDF
+              </a>
               <a href="#comments" class="btn btn-secondary" onclick="selectPaperForComment('${paper.id}')">參與留言</a>
             </div>
           </div>
