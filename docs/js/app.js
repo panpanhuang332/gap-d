@@ -7,75 +7,65 @@ const API_BASE = window.location.hostname === 'localhost' || window.location.hos
 // 本地快取備用資料 (當 Render 雲端伺服器休眠或尚未啟動時，確保網頁維持正常顯示)
 const FALLBACK_PAPERS = [
   {
-    id: "paper-1",
-    title: "數位假評的期望扭曲效應：基於 MOT 理論的服務品質缺口研究",
-    englishTitle: "The Expectation Distortion Effect of Fake Online Reviews: A Service Quality Gap Study Based on MOT Theory",
-    author: "黄國津（建國科技大學）",
-    conference: "台北商業大學研討會",
-    date: "2026-05-15",
-    status: "已接受口頭發表（已於 5/15 發表）",
-    abstract: "本研究探討數位假評（Fake Reviews）對消費者服務期望與品質感知之影響機制。依據 PZB 服務品質缺口模型（Parasuraman et al., 1985），本研究提出「Gap D（數位資訊污染缺口）」：Gap D = E_polluted − E_authentic，具方向性——正向假評造成上行扭曲（Gap D > 0，E↑，Gap 5 擴大，消費者失落）；負向假評造成下行扭曲（Gap D < 0，E↓，Gap 5 縮小，品牌遭系統性低估）。此雙向扭曲機制，本研究正式命名為「期望扭曲悖論（Expectation Distortion Paradox, EDP）」。援引 Carlzon（1987）MOT 理論，本研究提出三項評論真實性指標：具體性分數（SS－Specificity Score）、模板相似度（TS－Template Similarity）及情感細粒度（SG－Sentiment Granularity），整合為整體評分，開發「MOT Calibrator」工具原型，協助消費者在 ZMOT 階段主動校準期望。理論貢獻在於：首次系統性建構雙向 Gap D 框架，並將假評研究從技術偵測視角拓展至服務管理的期望品質保護視角。",
-    keywords: ["假評偵測", "期望扭曲悖論", "Gap D", "MOT 理論", "PZB 服務品質缺口", "精細可能性模型 (ELM)"],
-    fileName: "mock_paper_1.pdf"
+    "id": "paper-1",
+    "title": "數位假評的期望扭曲效應：基於 MOT 理論的服務品質缺口研究",
+    "englishTitle": "The Expectation Distortion Effect of Fake Online Reviews: A Service Quality Gap Study Based on MOT Theory",
+    "author": "黄國津（建國科技大學）",
+    "conference": "2026 第二十五屆北商大學術論壇——國際企業經營管理研討會（國立臺北商業大學）",
+    "date": "2026-05-15",
+    "status": "已發表｜2026/05/15",
+    "abstract": "本研究從服務品質管理的角度，探討數位假評如何影響消費者形成期望。提出 Gap D（數位資訊污染缺口）＝E_polluted − E_authentic，以概念模型分析正向與負向資訊污染可能造成的期望扭曲，並提出期望扭曲悖論（EDP）的研究命題。研究另將 MOT 服務接觸細節轉為具體性、模板語言與情感線索，作為期望校準工具原型的設計起點。目前成果屬概念建構與工具原型，影響機制、判讀準確性及校準效果仍待實證檢驗。",
+    "keywords": [
+      "假評偵測",
+      "期望扭曲悖論",
+      "Gap D",
+      "MOT 理論",
+      "PZB 服務品質缺口",
+      "精細可能性模型 (ELM)"
+    ],
+    "fileName": "mock_paper_1.pdf"
   },
   {
-    id: "paper-2",
-    title: "Gap D 作為 PZB 獨立缺口的三維論證：問責性、信號可信度與市場失靈",
-    englishTitle: "Gap D as an Independent PZB Service Quality Gap: A Three-Dimensional Theoretical Argument for Accountability, Signaling Credibility, and Market Failure",
-    author: "黄國津（建國科技大學）",
-    conference: "龍華科技大學研討會",
-    date: "2026-05-29",
-    status: "已接受口頭發表（將於 5/29 發表）",
-    abstract: "本研究針對現有服務品質理論的測量盲點，正式提出「Gap D（數位資訊污染缺口）」，並主張 Gap D 不僅是 PZB 原始 Gap 4（外部溝通缺口）的數位化延伸，而是具有制度性本質差異的獨立理論命題。本研究從三個獨立理論維度進行論證：（1）資訊問責性（Drucker, 1993）——Gap D 的資訊主體為匿名第三方，現有法律問責機制難以有效追溯與即時處理；（2）信號可信度（Spence, 1973）——假評偽裝成中立口碑，繞過消費者的勸說知識防禦機制，造成比廣告更深的期望污染；（3）市場失靈機制（Akerlof, 1970）——假評構成數位市場中的「檸檬信號」，可能導致誠實業者在口碑競爭中處於系統性不利地位。Gap D 正式定義為：Gap D = E_polluted − E_authentic，具方向性，並以修正公式 Gap 5（修正版）= (E_authentic + Gap D) − P 整合進 PZB 框架。本研究進一步提出「期望扭曲悖論（EDP）」雙向框架、MOT Calibrator 評分工具及 MARC / MACS 三層治理架構，作為 Gap D 獨立命題的理論延伸與實踐出口。",
-    keywords: ["假評偵測", "期望扭曲悖論", "MOT 理論", "PZB 服務品質缺口", "期望校準"],
-    fileName: "mock_paper_2.pdf"
+    "id": "paper-2",
+    "title": "Gap D 作為 PZB 獨立缺口的三維論證：問責性、信號可信度與市場失靈",
+    "englishTitle": "Gap D as an Independent PZB Service Quality Gap: A Three-Dimensional Theoretical Argument for Accountability, Signaling Credibility, and Market Failure",
+    "author": "黄國津（建國科技大學）",
+    "conference": "2026 全國商管論文研討會暨論文競賽（龍華科技大學）",
+    "date": "2026-05-29",
+    "status": "已發表｜2026/05/29",
+    "abstract": "本研究從責任與問責觀點（Drucker）、信號理論（Spence）及資訊不對稱與市場失靈（Akerlof）三個角度，討論數位評論污染與 PZB Gap 4 的差異，並提出將 Gap D 視為獨立分析缺口的理論論證。研究關注第三方資訊的責任歸屬、中立口碑信號被模仿的可能性，以及誠實業者可能面臨的不利影響。這些是待檢驗的理論命題，尚不能據此認定所有假評情境都符合相同機制。",
+    "keywords": [
+      "假評偵測",
+      "期望扭曲悖論",
+      "MOT 理論",
+      "PZB 服務品質缺口",
+      "期望校準"
+    ],
+    "fileName": "mock_paper_2.pdf"
   },
   {
-    id: "paper-3",
-    title: "EAQUAL-15：期望真實性量表初步原型建構 ——數位假評情境下消費者期望校準機制的三構面設計",
-    englishTitle: "EAQUAL-15: Expectation Authenticity Quality Scale Preliminary Prototype Construction - Three-Dimensional Design of Consumer Expectation Calibration Mechanism Under Fake Online Reviews",
-    author: "黄國津（建國科技大學）",
-    conference: "台北科技大學研討會",
-    date: "2026-06-05",
-    status: "已接受口頭發表（將於 6/5 發表）",
-    abstract: "數位假評在消費者形成消費期望之前即可能污染其資訊基礎，使PZB服務品質缺口模型中「期望（E）」之形成過程暴露於系統性扭曲。然而SERVQUAL之22題量表聚焦於服務接觸後之P−E差距，較少處理期望形成階段所接觸資訊之真實性品質。為回應此測量缺口，本研究提出EAQUAL（Expectation Authenticity Quality Scale，期望真實性品質量表）作為一套針對「期望形成真實性」之初步量表原型（preliminary prototype scale）。本研究將量表收斂為三個核心構面：來源可信度（SC，4題）、內容真實性（CA，6題）、體驗一致性（EC，5題），共15題，採Likert五點量表，定位為「形成—驗證雙階段」感知量表。本文之理論貢獻在於提出針對期望污染缺口（Gap D）之消費者端測量工具雛形，並區隔於既有eWOM credibility與information quality研究。後續研究將進一步進行信度、收斂效度、區別效度與預測效度之實證驗證，並提出MACS（MOT Authenticity Certification System）作為平台端應用延伸，共同建構期望誠實管理（EHM）之操作框架。",
-    keywords: ["EAQUAL", "期望真實性", "假評", "服務品質量表", "Gap D", "MACS", "期望誠實管理"],
-    fileName: "mock_paper_3.pdf"
+    "id": "paper-3",
+    "title": "EAQUAL-15：期望真實性量表初步原型建構 ——數位假評情境下消費者期望校準機制的三構面設計",
+    "englishTitle": "EAQUAL-15: Expectation Authenticity Quality Scale Preliminary Prototype Construction - Three-Dimensional Design of Consumer Expectation Calibration Mechanism Under Fake Online Reviews",
+    "author": "黄國津（建國科技大學）",
+    "conference": "2026 經營管理國際研討會（國立臺北科技大學）",
+    "date": "2026-06-05",
+    "status": "已發表｜2026/06/05",
+    "abstract": "本研究提出 EAQUAL-15 期望真實性量表的初步原型，包含來源可信度（SC，4 題）、內容真實性（CA，6 題）與體驗一致性（EC，5 題），共 15 題，採 Likert 五點量表。SC 與 CA 用於購前評估，EC 用於實際消費後比對。量表測量消費者的真實性感知，不能直接判定評論客觀真偽。目前完成構面與題項設計，尚未完成信效度驗證；後續規劃透過專家審查、探索性與驗證性因素分析檢驗量表，並以 MACS（MOT Active Consumer Scoring）作為平台端應用構想。",
+    "keywords": [
+      "EAQUAL",
+      "期望真實性",
+      "假評",
+      "服務品質量表",
+      "Gap D",
+      "MACS",
+      "期望誠實管理"
+    ],
+    "fileName": "mock_paper_3.pdf"
   }
 ];
 
-const FALLBACK_COMMENTS = [
-  {
-    id: "comment-fallback-1",
-    name: "李明華 (台大資管所)",
-    email: "mh.li@example.com",
-    content: "黄同學的研究非常深入！Gap D 與 EDP 的雙向扭曲模型突破了傳統 PZB 服務品質量表僅關注「服務後」的侷限。在數位時代，購前期望被假評系統性扭曲的現象確實非常普遍且嚴重，這個研究缺口非常有價值！",
-    paperId: "paper-1",
-    date: "2026-05-16 14:30:22",
-    motTag: "🟢 高具體性評論",
-    rating: "high"
-  },
-  {
-    id: "comment-fallback-2",
-    name: "張雅婷 (政大企管系)",
-    email: "yt.chang@example.com",
-    content: "超棒的研究！大推！CP值很高的一篇文章，值得推薦，強烈推薦大家都來看！",
-    paperId: "paper-1",
-    date: "2026-05-17 09:15:40",
-    motTag: "🔴 模板化評論",
-    rating: "low"
-  },
-  {
-    id: "comment-fallback-3",
-    name: "陳志豪 (北科大經管所)",
-    email: "ch.chen@example.com",
-    content: "期待 6/5 台北科技大學研討會上發表的 EAQUAL-15 量表原型！我們實驗室也在探討 eWOM 的來源可信度，很高興看到有人將其與 Carlzon 的 MOT 理論結合，特別是針對 ZMOT 階段的期望校準，非常有啟發性。",
-    paperId: "paper-3",
-    date: "2026-05-20 18:45:10",
-    motTag: "🟢 高具體性評論",
-    rating: "high"
-  }
-];
+const FALLBACK_COMMENTS = []; // 未連線時不以示範人物冒充真實訪客留言
 
 document.addEventListener('DOMContentLoaded', () => {
   loadPapers();
@@ -143,10 +133,17 @@ function initNavScroll() {
 
 // ==================== 論文載入 ====================
 async function loadPapers() {
+  // 已發表成果先顯示，避免等待休眠後台；連線後保留其他新增著作。
+  renderPapers(FALLBACK_PAPERS, false);
   try {
     const res = await fetch(`${API_BASE}/api/papers`);
+    if (!res.ok) throw new Error('論文列表暫時無法載入');
     const papers = await res.json();
-    renderPapers(papers, false);
+    if (!Array.isArray(papers)) throw new Error('論文列表格式不符');
+    renderPapers(papers.map(paper => {
+      const current = FALLBACK_PAPERS.find(item => item.id === paper.id);
+      return current ? { ...paper, status: current.status, conference: current.conference, abstract: current.abstract } : paper;
+    }), false);
   } catch (err) {
     console.warn('雲端伺服器未回應，使用本地快取論文資料：', err);
     renderPapers(FALLBACK_PAPERS, true);
@@ -164,7 +161,7 @@ function renderPapers(papers, isOffline = false) {
   if (isOffline) {
     container.innerHTML = `
       <div class="offline-notice" style="text-align:center;color:var(--primary);margin-bottom:1.5rem;font-size:0.9rem;padding:0.6rem;border:1px solid rgba(0,242,254,0.3);background:rgba(0,242,254,0.05);border-radius:8px;display:flex;align-items:center;justify-content:center;gap:0.5rem;box-shadow:0 0 10px rgba(0,242,254,0.1);">
-        <span>📢 雲端伺服器載入中，已為您啟動本地快取防禦模式，您可以正常下載著作與填寫問卷！</span>
+        <span>以下顯示已核對的研究資料，可直接下載論文。</span>
       </div>
     `;
   }
@@ -186,7 +183,7 @@ function renderPapers(papers, isOffline = false) {
           <div class="paper-content">
             <h3>${paper.title}</h3>
             <p class="paper-english-title">${paper.englishTitle}</p>
-            <p class="paper-abstract"><b>摘要：</b>${paper.abstract}</p>
+            <p class="paper-abstract"><b>研究簡介：</b>${paper.abstract}</p>
             
             <div class="keywords-container">
               ${paper.keywords.map(kw => `<span class="keyword-tag">${kw}</span>`).join('')}
@@ -371,16 +368,16 @@ function calibrateReview() {
 
   if (overall >= 3.8) {
     alertBar.classList.add('risk-green');
-    riskLbl.textContent = '✓ 高具體性 / 低風險';
-    advice.textContent = `該評論富含具體服務瞬間 (MOT) 細節，且無模板刷分特徵，真實性高。您的購前期望 (E_authentic) 無需折價，可放心參考。`;
+    riskLbl.textContent = '✓ 參考線索較多（示意）';
+    advice.textContent = `本原型找到較多可供查證的文字線索，但細節也可能被編造。請比對評論來源、其他消費者經驗與實際服務資訊，再形成期望；此分數不是可信度機率。`;
   } else if (overall >= 2.5) {
     alertBar.classList.add('risk-orange');
-    riskLbl.textContent = '⚠ 一般情緒 / 中風險';
-    advice.textContent = `該評論存在部分真實詞彙，但也夾雜了大量空泛詞。建議將您的消費期望打 8 折（即設定 P_expected = E * 0.8），保留些許心理準備以避免 Gap D 產生。`;
+    riskLbl.textContent = '△ 參考線索中等（示意）';
+    advice.textContent = `本原型找到部分具體線索，仍需更多資訊。建議比較不同來源，區分可核對事實與個人感受；目前沒有證據支持固定比例的期望折扣。`;
   } else {
     alertBar.classList.add('risk-red');
-    riskLbl.textContent = '✗ 模板刷分 / 高風險';
-    advice.textContent = `警告：此評論高機率為 AI 生成或網軍模板刷分！內容極度缺乏細節且情感單一。此評論會強烈污染您的期望（E_polluted 高昂）。強烈建議完全折扣此評論，或直接預設其真實品質為最低星等，以防禦 EDP 期望扭曲效應！`;
+    riskLbl.textContent = '△ 參考線索有限（示意）';
+    advice.textContent = `本原型找到的參考線索有限，或偵測到較多預設套語。這也可能是簡短、真實的個人感受；不能據此判定假評、AI 生成或商家品質。請補充其他來源再做決定。`;
   }
 }
 
@@ -789,3 +786,4 @@ function initRevealAnimations() {
 
   reveals.forEach(el => observer.observe(el));
 }
+
