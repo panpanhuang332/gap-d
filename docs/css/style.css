@@ -159,6 +159,8 @@ header {
 }
 
 .logo {
+  color: var(--text-main);
+  white-space: nowrap;
   font-family: var(--font-title);
   font-size: 1.5rem;
   font-weight: 800;
@@ -607,6 +609,12 @@ section {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+}
+
+.calibrator-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .form-group {
@@ -1129,6 +1137,13 @@ textarea.form-control {
   gap: 0.85rem;
 }
 
+.survey-rating-options {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
 .survey-opt-item {
   display: flex;
   align-items: center;
@@ -1137,6 +1152,7 @@ textarea.form-control {
 }
 
 .survey-opt-item input[type="radio"], .survey-opt-item input[type="checkbox"] {
+  flex: 0 0 18px;
   width: 18px;
   height: 18px;
   accent-color: var(--primary);
@@ -1710,7 +1726,11 @@ footer {
   position: fixed;
   bottom: 2rem;
   left: 50%;
-  transform: translateX(-50%) translateY(100px);
+  transform: translateX(-50%) translateY(calc(100% + 2rem));
+  visibility: hidden;
+  opacity: 0;
+  width: max-content;
+  max-width: calc(100% - 2rem);
   background: rgba(16, 185, 129, 0.95);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -1721,7 +1741,7 @@ footer {
   font-size: 0.9rem;
   z-index: 1200;
   box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.25s;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -1729,6 +1749,8 @@ footer {
 }
 
 .toast-notification.active {
+  visibility: visible;
+  opacity: 1;
   transform: translateX(-50%) translateY(0);
 }
 
@@ -1919,4 +1941,176 @@ footer {
     transform: none;
   }
 }
+
+/* Compact navigation and readable cards on phones and narrow tablets. */
+@media (max-width: 992px) {
+  .nav-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.25rem;
+    padding: 0.5rem 1rem;
+    min-width: 0;
+  }
+
+  .logo {
+    align-self: center;
+    font-size: 1.25rem;
+  }
+
+  .nav-links {
+    width: 100%;
+    min-width: 0;
+    gap: 1.1rem;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    padding-bottom: 0.25rem;
+    scrollbar-width: thin;
+  }
+
+  .nav-links li {
+    flex: 0 0 auto;
+  }
+
+  .nav-links a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    white-space: nowrap;
+    font-size: 0.9rem;
+  }
+
+  section {
+    scroll-margin-top: 130px;
+  }
+
+  .hero-section > *, .tool-grid > *, .comments-section > *,
+  .report-grid > *, .glass-card, .tool, .survey-q-box {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  main {
+    margin: 1.5rem auto;
+    padding: 0 1rem;
+  }
+
+  section {
+    margin-bottom: 3rem;
+  }
+
+  .section-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .section-header h2 {
+    font-size: 1.65rem;
+    line-height: 1.4;
+  }
+
+  .glass-card {
+    padding: 1.1rem;
+    border-radius: 14px;
+  }
+
+  .trilogy-timeline::before {
+    left: 6px;
+  }
+
+  .paper-item {
+    padding-left: 26px;
+    margin-bottom: 2rem;
+  }
+
+  .paper-marker {
+    left: 0;
+    width: 14px;
+    height: 14px;
+    border-width: 2px;
+  }
+
+  .paper-meta {
+    gap: 0.5rem;
+  }
+
+  .paper-badge {
+    max-width: 100%;
+    border-radius: 8px;
+    line-height: 1.6;
+    padding: 0.25rem 0.5rem;
+    overflow-wrap: anywhere;
+  }
+
+  .paper-content h3 {
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+
+  .paper-english-title, .paper-abstract, .contact-item {
+    overflow-wrap: anywhere;
+  }
+
+  .paper-actions, .calibrator-actions {
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .paper-actions .btn, .calibrator-actions .btn {
+    width: 100%;
+    min-height: 44px;
+    justify-content: center;
+  }
+
+  .tool-grid, .comments-section, .report-grid {
+    gap: 1.5rem;
+  }
+
+  .survey-q-box {
+    padding: 1rem;
+  }
+
+  .survey-rating-options {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  .survey-opt-item {
+    min-height: 44px;
+    align-items: flex-start;
+  }
+
+  .survey-opt-item input {
+    margin-top: 0.3rem;
+  }
+
+  .survey-opt-item label {
+    flex: 1;
+    min-width: 0;
+    line-height: 1.6;
+  }
+
+  .likert-option label {
+    min-height: 44px;
+  }
+
+  .modal-header, .modal-body {
+    padding: 1rem;
+  }
+
+  .modal-header {
+    gap: 0.75rem;
+  }
+
+  .btn-close {
+    flex-shrink: 0;
+  }
+
+  .toast-notification {
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    line-height: 1.5;
+  }
+}
+
 

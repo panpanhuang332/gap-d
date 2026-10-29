@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=20260605-01">
+  <link rel="stylesheet" href="css/style.css?v=20261030-01">
 </head>
 <body>
   <div class="bg-grid"></div>
@@ -124,7 +124,7 @@
               <textarea id="review-input" class="form-control" placeholder="在此貼上網路評論，例如：&#10;「服務員小陳主動幫我們換了靠窗座位，等了約20分鐘，牛肉麵湯頭偏鹹但麵條Q彈，下次會避開週末」"></textarea>
             </div>
             
-            <div style="display:flex; gap:1rem;">
+            <div class="calibrator-actions">
               <button id="btn-calibrate" class="btn btn-primary">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
                 開始期望校準
@@ -694,7 +694,7 @@
 
           <div class="survey-q-box">
             <h3 class="survey-q-title">3. 您對於當前主流評論平台（如 Google Maps、Tripadvisor）上商家評論真實性的整體信任評分為何？（5分代表完全信任，1分代表完全不信任）</h3>
-            <div class="survey-options" style="flex-direction: row; gap: 2rem; justify-content: center;">
+            <div class="survey-options survey-rating-options">
               <div class="survey-opt-item">
                 <input type="radio" name="q3" id="q3-1" value="1"><label for="q3-1">1分 (極低)</label>
               </div>
